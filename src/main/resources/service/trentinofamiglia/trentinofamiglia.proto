@@ -1,0 +1,16 @@
+package eu.trentorise.smartcampus.service.trentinofamiglia.data.message;
+
+import "core.proto";
+
+message EventoFamiglia {
+ required string id = 1;
+ required string title = 2;
+ required string description = 3;
+ required string from = 4;
+ required string to = 5;
+ required string days = 6;
+ required string organization = 7;
+ required string place = 8;
+ optional it.sayservice.platform.core.message.POI poi = 9;
+ 
+}
