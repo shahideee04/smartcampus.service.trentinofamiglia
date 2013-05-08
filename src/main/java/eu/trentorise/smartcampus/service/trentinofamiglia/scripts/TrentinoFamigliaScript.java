@@ -1,13 +1,16 @@
 package eu.trentorise.smartcampus.service.trentinofamiglia.scripts;
 
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
 import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
 
 import javax.xml.bind.JAXBContext;
-import javax.xml.bind.JAXBElement;
 import javax.xml.bind.Unmarshaller;
 import javax.xml.transform.stream.StreamSource;
 
@@ -15,6 +18,7 @@ import com.google.protobuf.Message;
 
 import eu.trentorise.smartcampus.service.trentinofamiglia.data.message.Trentinofamiglia;
 import eu.trentorise.smartcampus.service.trentinofamiglia.data.message.Trentinofamiglia.EventoFamiglia;
+import eu.trentorise.smartcampus.service.trentinofamiglia.data.message.Trentinofamiglia.OrganizzazioneFamiglia;
 import eu.trentorise.smartcampus.service.trentinofamiglia.jaxb.Dataroot;
 import eu.trentorise.smartcampus.service.trentinofamiglia.jaxb.Dataroot.TABOrg;
 import eu.trentorise.smartcampus.service.trentinofamiglia.jaxb.Dataroot.TABOrg.TABAttività;
@@ -88,6 +92,39 @@ public class TrentinoFamigliaScript {
 		}  else {
 			return s;
 		}
+	}
+	
+	public List<Message> parseOrganizzazioni() throws Exception {
+		List<Message> result = new ArrayList<Message>();
+		try {
+		InputStream rs = Thread.currentThread().getContextClassLoader().getResourceAsStream("service/trentinofamiglia/registro_organizzazioni_certificate_familyaudit.csv");
+		InputStreamReader isr = new InputStreamReader(rs);
+		BufferedReader br = new BufferedReader(isr);
+		
+		String line = null;
+		while ((line = br.readLine()) != null) {
+			String words[] = line.split(";");
+			try {
+			Integer.parseInt(words[0]);
+			} catch (NumberFormatException e) {
+				continue;
+			}
+			OrganizzazioneFamiglia.Builder builder = OrganizzazioneFamiglia.newBuilder();
+			builder.setName(words[1]);
+			builder.setStatus(words[2]);
+			if (words.length == 8) {
+				builder.setLink(words[7]);
+			}
+			
+			result.add(builder.build());
+		}		
+		
+		return result;
+		} catch (Exception e) {
+			e.printStackTrace();
+			throw e;
+		}
+		
 	}
 	
 

@@ -14,3 +14,14 @@ message EventoFamiglia {
  optional it.sayservice.platform.core.message.POI poi = 9;
  
 }
+
+message OrganizzazioneFamiglia {
+ required string name = 1;
+ required string status = 2;
+ optional string link = 3;
+ optional it.sayservice.platform.core.message.POI poi = 4;
+}
+
+
+
+

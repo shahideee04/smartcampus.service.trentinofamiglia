@@ -4,10 +4,16 @@
 		<operation name="GetEventi" storable="true">
 			<output type="eu.trentorise.smartcampus.service.trentinofamiglia.data.message.Trentinofamiglia$EventoFamiglia" repeated="true" />
 		</operation>
+		<operation name="GetOrganizzazioni" storable="true">
+			<output type="eu.trentorise.smartcampus.service.trentinofamiglia.data.message.Trentinofamiglia$OrganizzazioneFamiglia" repeated="true" />
+		</operation>		
 	</interface>
 
 	<implementation package="eu.trentorise.smartcampus.service.trentinofamiglia">
 		<operationImpl name="GetEventi"/>
+	</implementation>
+	<implementation package="eu.trentorise.smartcampus.service.trentinofamiglia">
+		<operationImpl name="GetOrganizzazioni"/>
 	</implementation>	
 	
 </service-definition>

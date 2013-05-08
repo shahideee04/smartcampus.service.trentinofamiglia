@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataflow
+xmlns="http://www.example.org/mml-schema"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:schemaLocation="http://www.example.org/mml-schema mml-schema.xsd ">
+
+	<variable name="organizations" type="java.util.List"/>
+
+	<script outputVar="organizations">
+		<className>eu.trentorise.smartcampus.service.trentinofamiglia.scripts.TrentinoFamigliaScript</className>
+		<method>parseOrganizzazioni</method>
+	</script>		
+	
+	<foreach item="organization" itemClass="eu.trentorise.smartcampus.service.trentinofamiglia.data.message.Trentinofamiglia.OrganizzazioneFamiglia" aggregateVariable="list" outputVar="output" writeAction="append" writeMethod="addAll">
+		<items>organizations</items>
+		<geolocalize outputVar="list" inputVar="organization" writeAction="append" attribute="poi" onError="continue">
+			<poiName>organization.getName()</poiName>
+		</geolocalize>
+	</foreach>
+	
+	
+	
+</dataflow>
