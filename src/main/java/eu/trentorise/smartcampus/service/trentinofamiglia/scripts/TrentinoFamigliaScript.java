@@ -22,7 +22,7 @@ import eu.trentorise.smartcampus.service.trentinofamiglia.jaxb.Dataroot.TABOrg.T
 
 public class TrentinoFamigliaScript {
 
-	public List<Message> parse() throws Exception {
+	public List<Message> parseEstate() throws Exception {
 		try {
 		List<Message> result = new ArrayList<Message>();
 

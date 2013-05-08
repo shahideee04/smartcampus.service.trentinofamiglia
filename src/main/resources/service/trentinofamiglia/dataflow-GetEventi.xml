@@ -8,7 +8,7 @@ xsi:schemaLocation="http://www.example.org/mml-schema mml-schema.xsd ">
 
 	<script outputVar="events">
 		<className>eu.trentorise.smartcampus.service.trentinofamiglia.scripts.TrentinoFamigliaScript</className>
-		<method>parse</method>
+		<method>parseEstate</method>
 	</script>		
 	
 	<foreach item="event" itemClass="eu.trentorise.smartcampus.service.trentinofamiglia.data.message.Trentinofamiglia.EventoFamiglia" aggregateVariable="list" outputVar="output" writeAction="append" writeMethod="addAll">
