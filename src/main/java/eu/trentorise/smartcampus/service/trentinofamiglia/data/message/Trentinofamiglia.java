@@ -1260,11 +1260,750 @@ public final class Trentinofamiglia {
     // @@protoc_insertion_point(class_scope:eu.trentorise.smartcampus.service.trentinofamiglia.data.message.EventoFamiglia)
   }
   
+  public interface OrganizzazioneFamigliaOrBuilder
+      extends com.google.protobuf.MessageOrBuilder {
+    
+    // required string name = 1;
+    boolean hasName();
+    String getName();
+    
+    // required string status = 2;
+    boolean hasStatus();
+    String getStatus();
+    
+    // optional string link = 3;
+    boolean hasLink();
+    String getLink();
+    
+    // optional .it.sayservice.platform.core.message.POI poi = 4;
+    boolean hasPoi();
+    it.sayservice.platform.core.message.Core.POI getPoi();
+    it.sayservice.platform.core.message.Core.POIOrBuilder getPoiOrBuilder();
+  }
+  public static final class OrganizzazioneFamiglia extends
+      com.google.protobuf.GeneratedMessage
+      implements OrganizzazioneFamigliaOrBuilder {
+    // Use OrganizzazioneFamiglia.newBuilder() to construct.
+    private OrganizzazioneFamiglia(Builder builder) {
+      super(builder);
+    }
+    private OrganizzazioneFamiglia(boolean noInit) {}
+    
+    private static final OrganizzazioneFamiglia defaultInstance;
+    public static OrganizzazioneFamiglia getDefaultInstance() {
+      return defaultInstance;
+    }
+    
+    public OrganizzazioneFamiglia getDefaultInstanceForType() {
+      return defaultInstance;
+    }
+    
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return eu.trentorise.smartcampus.service.trentinofamiglia.data.message.Trentinofamiglia.internal_static_eu_trentorise_smartcampus_service_trentinofamiglia_data_message_OrganizzazioneFamiglia_descriptor;
+    }
+    
+    protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return eu.trentorise.smartcampus.service.trentinofamiglia.data.message.Trentinofamiglia.internal_static_eu_trentorise_smartcampus_service_trentinofamiglia_data_message_OrganizzazioneFamiglia_fieldAccessorTable;
+    }
+    
+    private int bitField0_;
+    // required string name = 1;
+    public static final int NAME_FIELD_NUMBER = 1;
+    private java.lang.Object name_;
+    public boolean hasName() {
+      return ((bitField0_ & 0x00000001) == 0x00000001);
+    }
+    public String getName() {
+      java.lang.Object ref = name_;
+      if (ref instanceof String) {
+        return (String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        String s = bs.toStringUtf8();
+        if (com.google.protobuf.Internal.isValidUtf8(bs)) {
+          name_ = s;
+        }
+        return s;
+      }
+    }
+    private com.google.protobuf.ByteString getNameBytes() {
+      java.lang.Object ref = name_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8((String) ref);
+        name_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    
+    // required string status = 2;
+    public static final int STATUS_FIELD_NUMBER = 2;
+    private java.lang.Object status_;
+    public boolean hasStatus() {
+      return ((bitField0_ & 0x00000002) == 0x00000002);
+    }
+    public String getStatus() {
+      java.lang.Object ref = status_;
+      if (ref instanceof String) {
+        return (String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        String s = bs.toStringUtf8();
+        if (com.google.protobuf.Internal.isValidUtf8(bs)) {
+          status_ = s;
+        }
+        return s;
+      }
+    }
+    private com.google.protobuf.ByteString getStatusBytes() {
+      java.lang.Object ref = status_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8((String) ref);
+        status_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    
+    // optional string link = 3;
+    public static final int LINK_FIELD_NUMBER = 3;
+    private java.lang.Object link_;
+    public boolean hasLink() {
+      return ((bitField0_ & 0x00000004) == 0x00000004);
+    }
+    public String getLink() {
+      java.lang.Object ref = link_;
+      if (ref instanceof String) {
+        return (String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        String s = bs.toStringUtf8();
+        if (com.google.protobuf.Internal.isValidUtf8(bs)) {
+          link_ = s;
+        }
+        return s;
+      }
+    }
+    private com.google.protobuf.ByteString getLinkBytes() {
+      java.lang.Object ref = link_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8((String) ref);
+        link_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    
+    // optional .it.sayservice.platform.core.message.POI poi = 4;
+    public static final int POI_FIELD_NUMBER = 4;
+    private it.sayservice.platform.core.message.Core.POI poi_;
+    public boolean hasPoi() {
+      return ((bitField0_ & 0x00000008) == 0x00000008);
+    }
+    public it.sayservice.platform.core.message.Core.POI getPoi() {
+      return poi_;
+    }
+    public it.sayservice.platform.core.message.Core.POIOrBuilder getPoiOrBuilder() {
+      return poi_;
+    }
+    
+    private void initFields() {
+      name_ = "";
+      status_ = "";
+      link_ = "";
+      poi_ = it.sayservice.platform.core.message.Core.POI.getDefaultInstance();
+    }
+    private byte memoizedIsInitialized = -1;
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized != -1) return isInitialized == 1;
+      
+      if (!hasName()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      if (!hasStatus()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      if (hasPoi()) {
+        if (!getPoi().isInitialized()) {
+          memoizedIsInitialized = 0;
+          return false;
+        }
+      }
+      memoizedIsInitialized = 1;
+      return true;
+    }
+    
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      getSerializedSize();
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        output.writeBytes(1, getNameBytes());
+      }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        output.writeBytes(2, getStatusBytes());
+      }
+      if (((bitField0_ & 0x00000004) == 0x00000004)) {
+        output.writeBytes(3, getLinkBytes());
+      }
+      if (((bitField0_ & 0x00000008) == 0x00000008)) {
+        output.writeMessage(4, poi_);
+      }
+      getUnknownFields().writeTo(output);
+    }
+    
+    private int memoizedSerializedSize = -1;
+    public int getSerializedSize() {
+      int size = memoizedSerializedSize;
+      if (size != -1) return size;
+    
+      size = 0;
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBytesSize(1, getNameBytes());
+      }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBytesSize(2, getStatusBytes());
+      }
+      if (((bitField0_ & 0x00000004) == 0x00000004)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBytesSize(3, getLinkBytes());
+      }
+      if (((bitField0_ & 0x00000008) == 0x00000008)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(4, poi_);
+      }
+      size += getUnknownFields().getSerializedSize();
+      memoizedSerializedSize = size;
+      return size;
+    }
+    
+    private static final long serialVersionUID = 0L;
+    @java.lang.Override
+    protected java.lang.Object writeReplace()
+        throws java.io.ObjectStreamException {
+      return super.writeReplace();
+    }
+    
+    public static eu.trentorise.smartcampus.service.trentinofamiglia.data.message.Trentinofamiglia.OrganizzazioneFamiglia parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return newBuilder().mergeFrom(data).buildParsed();
+    }
+    public static eu.trentorise.smartcampus.service.trentinofamiglia.data.message.Trentinofamiglia.OrganizzazioneFamiglia parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return newBuilder().mergeFrom(data, extensionRegistry)
+               .buildParsed();
+    }
+    public static eu.trentorise.smartcampus.service.trentinofamiglia.data.message.Trentinofamiglia.OrganizzazioneFamiglia parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return newBuilder().mergeFrom(data).buildParsed();
+    }
+    public static eu.trentorise.smartcampus.service.trentinofamiglia.data.message.Trentinofamiglia.OrganizzazioneFamiglia parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return newBuilder().mergeFrom(data, extensionRegistry)
+               .buildParsed();
+    }
+    public static eu.trentorise.smartcampus.service.trentinofamiglia.data.message.Trentinofamiglia.OrganizzazioneFamiglia parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return newBuilder().mergeFrom(input).buildParsed();
+    }
+    public static eu.trentorise.smartcampus.service.trentinofamiglia.data.message.Trentinofamiglia.OrganizzazioneFamiglia parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return newBuilder().mergeFrom(input, extensionRegistry)
+               .buildParsed();
+    }
+    public static eu.trentorise.smartcampus.service.trentinofamiglia.data.message.Trentinofamiglia.OrganizzazioneFamiglia parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      Builder builder = newBuilder();
+      if (builder.mergeDelimitedFrom(input)) {
+        return builder.buildParsed();
+      } else {
+        return null;
+      }
+    }
+    public static eu.trentorise.smartcampus.service.trentinofamiglia.data.message.Trentinofamiglia.OrganizzazioneFamiglia parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      Builder builder = newBuilder();
+      if (builder.mergeDelimitedFrom(input, extensionRegistry)) {
+        return builder.buildParsed();
+      } else {
+        return null;
+      }
+    }
+    public static eu.trentorise.smartcampus.service.trentinofamiglia.data.message.Trentinofamiglia.OrganizzazioneFamiglia parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return newBuilder().mergeFrom(input).buildParsed();
+    }
+    public static eu.trentorise.smartcampus.service.trentinofamiglia.data.message.Trentinofamiglia.OrganizzazioneFamiglia parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return newBuilder().mergeFrom(input, extensionRegistry)
+               .buildParsed();
+    }
+    
+    public static Builder newBuilder() { return Builder.create(); }
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder(eu.trentorise.smartcampus.service.trentinofamiglia.data.message.Trentinofamiglia.OrganizzazioneFamiglia prototype) {
+      return newBuilder().mergeFrom(prototype);
+    }
+    public Builder toBuilder() { return newBuilder(this); }
+    
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessage.Builder<Builder>
+       implements eu.trentorise.smartcampus.service.trentinofamiglia.data.message.Trentinofamiglia.OrganizzazioneFamigliaOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return eu.trentorise.smartcampus.service.trentinofamiglia.data.message.Trentinofamiglia.internal_static_eu_trentorise_smartcampus_service_trentinofamiglia_data_message_OrganizzazioneFamiglia_descriptor;
+      }
+      
+      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return eu.trentorise.smartcampus.service.trentinofamiglia.data.message.Trentinofamiglia.internal_static_eu_trentorise_smartcampus_service_trentinofamiglia_data_message_OrganizzazioneFamiglia_fieldAccessorTable;
+      }
+      
+      // Construct using eu.trentorise.smartcampus.service.trentinofamiglia.data.message.Trentinofamiglia.OrganizzazioneFamiglia.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+      
+      private Builder(BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
+          getPoiFieldBuilder();
+        }
+      }
+      private static Builder create() {
+        return new Builder();
+      }
+      
+      public Builder clear() {
+        super.clear();
+        name_ = "";
+        bitField0_ = (bitField0_ & ~0x00000001);
+        status_ = "";
+        bitField0_ = (bitField0_ & ~0x00000002);
+        link_ = "";
+        bitField0_ = (bitField0_ & ~0x00000004);
+        if (poiBuilder_ == null) {
+          poi_ = it.sayservice.platform.core.message.Core.POI.getDefaultInstance();
+        } else {
+          poiBuilder_.clear();
+        }
+        bitField0_ = (bitField0_ & ~0x00000008);
+        return this;
+      }
+      
+      public Builder clone() {
+        return create().mergeFrom(buildPartial());
+      }
+      
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return eu.trentorise.smartcampus.service.trentinofamiglia.data.message.Trentinofamiglia.OrganizzazioneFamiglia.getDescriptor();
+      }
+      
+      public eu.trentorise.smartcampus.service.trentinofamiglia.data.message.Trentinofamiglia.OrganizzazioneFamiglia getDefaultInstanceForType() {
+        return eu.trentorise.smartcampus.service.trentinofamiglia.data.message.Trentinofamiglia.OrganizzazioneFamiglia.getDefaultInstance();
+      }
+      
+      public eu.trentorise.smartcampus.service.trentinofamiglia.data.message.Trentinofamiglia.OrganizzazioneFamiglia build() {
+        eu.trentorise.smartcampus.service.trentinofamiglia.data.message.Trentinofamiglia.OrganizzazioneFamiglia result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+      
+      private eu.trentorise.smartcampus.service.trentinofamiglia.data.message.Trentinofamiglia.OrganizzazioneFamiglia buildParsed()
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        eu.trentorise.smartcampus.service.trentinofamiglia.data.message.Trentinofamiglia.OrganizzazioneFamiglia result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(
+            result).asInvalidProtocolBufferException();
+        }
+        return result;
+      }
+      
+      public eu.trentorise.smartcampus.service.trentinofamiglia.data.message.Trentinofamiglia.OrganizzazioneFamiglia buildPartial() {
+        eu.trentorise.smartcampus.service.trentinofamiglia.data.message.Trentinofamiglia.OrganizzazioneFamiglia result = new eu.trentorise.smartcampus.service.trentinofamiglia.data.message.Trentinofamiglia.OrganizzazioneFamiglia(this);
+        int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
+        if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
+          to_bitField0_ |= 0x00000001;
+        }
+        result.name_ = name_;
+        if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
+          to_bitField0_ |= 0x00000002;
+        }
+        result.status_ = status_;
+        if (((from_bitField0_ & 0x00000004) == 0x00000004)) {
+          to_bitField0_ |= 0x00000004;
+        }
+        result.link_ = link_;
+        if (((from_bitField0_ & 0x00000008) == 0x00000008)) {
+          to_bitField0_ |= 0x00000008;
+        }
+        if (poiBuilder_ == null) {
+          result.poi_ = poi_;
+        } else {
+          result.poi_ = poiBuilder_.build();
+        }
+        result.bitField0_ = to_bitField0_;
+        onBuilt();
+        return result;
+      }
+      
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof eu.trentorise.smartcampus.service.trentinofamiglia.data.message.Trentinofamiglia.OrganizzazioneFamiglia) {
+          return mergeFrom((eu.trentorise.smartcampus.service.trentinofamiglia.data.message.Trentinofamiglia.OrganizzazioneFamiglia)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+      
+      public Builder mergeFrom(eu.trentorise.smartcampus.service.trentinofamiglia.data.message.Trentinofamiglia.OrganizzazioneFamiglia other) {
+        if (other == eu.trentorise.smartcampus.service.trentinofamiglia.data.message.Trentinofamiglia.OrganizzazioneFamiglia.getDefaultInstance()) return this;
+        if (other.hasName()) {
+          setName(other.getName());
+        }
+        if (other.hasStatus()) {
+          setStatus(other.getStatus());
+        }
+        if (other.hasLink()) {
+          setLink(other.getLink());
+        }
+        if (other.hasPoi()) {
+          mergePoi(other.getPoi());
+        }
+        this.mergeUnknownFields(other.getUnknownFields());
+        return this;
+      }
+      
+      public final boolean isInitialized() {
+        if (!hasName()) {
+          
+          return false;
+        }
+        if (!hasStatus()) {
+          
+          return false;
+        }
+        if (hasPoi()) {
+          if (!getPoi().isInitialized()) {
+            
+            return false;
+          }
+        }
+        return true;
+      }
+      
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder(
+            this.getUnknownFields());
+        while (true) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              this.setUnknownFields(unknownFields.build());
+              onChanged();
+              return this;
+            default: {
+              if (!parseUnknownField(input, unknownFields,
+                                     extensionRegistry, tag)) {
+                this.setUnknownFields(unknownFields.build());
+                onChanged();
+                return this;
+              }
+              break;
+            }
+            case 10: {
+              bitField0_ |= 0x00000001;
+              name_ = input.readBytes();
+              break;
+            }
+            case 18: {
+              bitField0_ |= 0x00000002;
+              status_ = input.readBytes();
+              break;
+            }
+            case 26: {
+              bitField0_ |= 0x00000004;
+              link_ = input.readBytes();
+              break;
+            }
+            case 34: {
+              it.sayservice.platform.core.message.Core.POI.Builder subBuilder = it.sayservice.platform.core.message.Core.POI.newBuilder();
+              if (hasPoi()) {
+                subBuilder.mergeFrom(getPoi());
+              }
+              input.readMessage(subBuilder, extensionRegistry);
+              setPoi(subBuilder.buildPartial());
+              break;
+            }
+          }
+        }
+      }
+      
+      private int bitField0_;
+      
+      // required string name = 1;
+      private java.lang.Object name_ = "";
+      public boolean hasName() {
+        return ((bitField0_ & 0x00000001) == 0x00000001);
+      }
+      public String getName() {
+        java.lang.Object ref = name_;
+        if (!(ref instanceof String)) {
+          String s = ((com.google.protobuf.ByteString) ref).toStringUtf8();
+          name_ = s;
+          return s;
+        } else {
+          return (String) ref;
+        }
+      }
+      public Builder setName(String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000001;
+        name_ = value;
+        onChanged();
+        return this;
+      }
+      public Builder clearName() {
+        bitField0_ = (bitField0_ & ~0x00000001);
+        name_ = getDefaultInstance().getName();
+        onChanged();
+        return this;
+      }
+      void setName(com.google.protobuf.ByteString value) {
+        bitField0_ |= 0x00000001;
+        name_ = value;
+        onChanged();
+      }
+      
+      // required string status = 2;
+      private java.lang.Object status_ = "";
+      public boolean hasStatus() {
+        return ((bitField0_ & 0x00000002) == 0x00000002);
+      }
+      public String getStatus() {
+        java.lang.Object ref = status_;
+        if (!(ref instanceof String)) {
+          String s = ((com.google.protobuf.ByteString) ref).toStringUtf8();
+          status_ = s;
+          return s;
+        } else {
+          return (String) ref;
+        }
+      }
+      public Builder setStatus(String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000002;
+        status_ = value;
+        onChanged();
+        return this;
+      }
+      public Builder clearStatus() {
+        bitField0_ = (bitField0_ & ~0x00000002);
+        status_ = getDefaultInstance().getStatus();
+        onChanged();
+        return this;
+      }
+      void setStatus(com.google.protobuf.ByteString value) {
+        bitField0_ |= 0x00000002;
+        status_ = value;
+        onChanged();
+      }
+      
+      // optional string link = 3;
+      private java.lang.Object link_ = "";
+      public boolean hasLink() {
+        return ((bitField0_ & 0x00000004) == 0x00000004);
+      }
+      public String getLink() {
+        java.lang.Object ref = link_;
+        if (!(ref instanceof String)) {
+          String s = ((com.google.protobuf.ByteString) ref).toStringUtf8();
+          link_ = s;
+          return s;
+        } else {
+          return (String) ref;
+        }
+      }
+      public Builder setLink(String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000004;
+        link_ = value;
+        onChanged();
+        return this;
+      }
+      public Builder clearLink() {
+        bitField0_ = (bitField0_ & ~0x00000004);
+        link_ = getDefaultInstance().getLink();
+        onChanged();
+        return this;
+      }
+      void setLink(com.google.protobuf.ByteString value) {
+        bitField0_ |= 0x00000004;
+        link_ = value;
+        onChanged();
+      }
+      
+      // optional .it.sayservice.platform.core.message.POI poi = 4;
+      private it.sayservice.platform.core.message.Core.POI poi_ = it.sayservice.platform.core.message.Core.POI.getDefaultInstance();
+      private com.google.protobuf.SingleFieldBuilder<
+          it.sayservice.platform.core.message.Core.POI, it.sayservice.platform.core.message.Core.POI.Builder, it.sayservice.platform.core.message.Core.POIOrBuilder> poiBuilder_;
+      public boolean hasPoi() {
+        return ((bitField0_ & 0x00000008) == 0x00000008);
+      }
+      public it.sayservice.platform.core.message.Core.POI getPoi() {
+        if (poiBuilder_ == null) {
+          return poi_;
+        } else {
+          return poiBuilder_.getMessage();
+        }
+      }
+      public Builder setPoi(it.sayservice.platform.core.message.Core.POI value) {
+        if (poiBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          poi_ = value;
+          onChanged();
+        } else {
+          poiBuilder_.setMessage(value);
+        }
+        bitField0_ |= 0x00000008;
+        return this;
+      }
+      public Builder setPoi(
+          it.sayservice.platform.core.message.Core.POI.Builder builderForValue) {
+        if (poiBuilder_ == null) {
+          poi_ = builderForValue.build();
+          onChanged();
+        } else {
+          poiBuilder_.setMessage(builderForValue.build());
+        }
+        bitField0_ |= 0x00000008;
+        return this;
+      }
+      public Builder mergePoi(it.sayservice.platform.core.message.Core.POI value) {
+        if (poiBuilder_ == null) {
+          if (((bitField0_ & 0x00000008) == 0x00000008) &&
+              poi_ != it.sayservice.platform.core.message.Core.POI.getDefaultInstance()) {
+            poi_ =
+              it.sayservice.platform.core.message.Core.POI.newBuilder(poi_).mergeFrom(value).buildPartial();
+          } else {
+            poi_ = value;
+          }
+          onChanged();
+        } else {
+          poiBuilder_.mergeFrom(value);
+        }
+        bitField0_ |= 0x00000008;
+        return this;
+      }
+      public Builder clearPoi() {
+        if (poiBuilder_ == null) {
+          poi_ = it.sayservice.platform.core.message.Core.POI.getDefaultInstance();
+          onChanged();
+        } else {
+          poiBuilder_.clear();
+        }
+        bitField0_ = (bitField0_ & ~0x00000008);
+        return this;
+      }
+      public it.sayservice.platform.core.message.Core.POI.Builder getPoiBuilder() {
+        bitField0_ |= 0x00000008;
+        onChanged();
+        return getPoiFieldBuilder().getBuilder();
+      }
+      public it.sayservice.platform.core.message.Core.POIOrBuilder getPoiOrBuilder() {
+        if (poiBuilder_ != null) {
+          return poiBuilder_.getMessageOrBuilder();
+        } else {
+          return poi_;
+        }
+      }
+      private com.google.protobuf.SingleFieldBuilder<
+          it.sayservice.platform.core.message.Core.POI, it.sayservice.platform.core.message.Core.POI.Builder, it.sayservice.platform.core.message.Core.POIOrBuilder> 
+          getPoiFieldBuilder() {
+        if (poiBuilder_ == null) {
+          poiBuilder_ = new com.google.protobuf.SingleFieldBuilder<
+              it.sayservice.platform.core.message.Core.POI, it.sayservice.platform.core.message.Core.POI.Builder, it.sayservice.platform.core.message.Core.POIOrBuilder>(
+                  poi_,
+                  getParentForChildren(),
+                  isClean());
+          poi_ = null;
+        }
+        return poiBuilder_;
+      }
+      
+      // @@protoc_insertion_point(builder_scope:eu.trentorise.smartcampus.service.trentinofamiglia.data.message.OrganizzazioneFamiglia)
+    }
+    
+    static {
+      defaultInstance = new OrganizzazioneFamiglia(true);
+      defaultInstance.initFields();
+    }
+    
+    // @@protoc_insertion_point(class_scope:eu.trentorise.smartcampus.service.trentinofamiglia.data.message.OrganizzazioneFamiglia)
+  }
+  
   private static com.google.protobuf.Descriptors.Descriptor
     internal_static_eu_trentorise_smartcampus_service_trentinofamiglia_data_message_EventoFamiglia_descriptor;
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
       internal_static_eu_trentorise_smartcampus_service_trentinofamiglia_data_message_EventoFamiglia_fieldAccessorTable;
+  private static com.google.protobuf.Descriptors.Descriptor
+    internal_static_eu_trentorise_smartcampus_service_trentinofamiglia_data_message_OrganizzazioneFamiglia_descriptor;
+  private static
+    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      internal_static_eu_trentorise_smartcampus_service_trentinofamiglia_data_message_OrganizzazioneFamiglia_fieldAccessorTable;
   
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -1281,7 +2020,10 @@ public final class Trentinofamiglia {
       "on\030\003 \002(\t\022\014\n\004from\030\004 \002(\t\022\n\n\002to\030\005 \002(\t\022\014\n\004da" +
       "ys\030\006 \002(\t\022\024\n\014organization\030\007 \002(\t\022\r\n\005place\030" +
       "\010 \002(\t\0225\n\003poi\030\t \001(\0132(.it.sayservice.platf" +
-      "orm.core.message.POI"
+      "orm.core.message.POI\"{\n\026OrganizzazioneFa" +
+      "miglia\022\014\n\004name\030\001 \002(\t\022\016\n\006status\030\002 \002(\t\022\014\n\004" +
+      "link\030\003 \001(\t\0225\n\003poi\030\004 \001(\0132(.it.sayservice.",
+      "platform.core.message.POI"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
       new com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner() {
@@ -1296,6 +2038,14 @@ public final class Trentinofamiglia {
               new java.lang.String[] { "Id", "Title", "Description", "From", "To", "Days", "Organization", "Place", "Poi", },
               eu.trentorise.smartcampus.service.trentinofamiglia.data.message.Trentinofamiglia.EventoFamiglia.class,
               eu.trentorise.smartcampus.service.trentinofamiglia.data.message.Trentinofamiglia.EventoFamiglia.Builder.class);
+          internal_static_eu_trentorise_smartcampus_service_trentinofamiglia_data_message_OrganizzazioneFamiglia_descriptor =
+            getDescriptor().getMessageTypes().get(1);
+          internal_static_eu_trentorise_smartcampus_service_trentinofamiglia_data_message_OrganizzazioneFamiglia_fieldAccessorTable = new
+            com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+              internal_static_eu_trentorise_smartcampus_service_trentinofamiglia_data_message_OrganizzazioneFamiglia_descriptor,
+              new java.lang.String[] { "Name", "Status", "Link", "Poi", },
+              eu.trentorise.smartcampus.service.trentinofamiglia.data.message.Trentinofamiglia.OrganizzazioneFamiglia.class,
+              eu.trentorise.smartcampus.service.trentinofamiglia.data.message.Trentinofamiglia.OrganizzazioneFamiglia.Builder.class);
           return null;
         }
       };

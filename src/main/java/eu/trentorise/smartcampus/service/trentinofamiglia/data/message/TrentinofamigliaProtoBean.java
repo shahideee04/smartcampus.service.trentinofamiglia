@@ -210,6 +210,104 @@ public class TrentinofamigliaProtoBean {
     
     
   }
+  public static class OrganizzazioneFamigliaProtoBean implements ProtoBean {
+          private String name;
+    public String getName() {
+      return name;
+    }
+    public void setName(String name) {
+      this.name = name;
+    }
+    
+          private String status;
+    public String getStatus() {
+      return status;
+    }
+    public void setStatus(String status) {
+      this.status = status;
+    }
+    
+          private String link;
+    public String getLink() {
+      return link;
+    }
+    public void setLink(String link) {
+      this.link = link;
+    }
+    
+          private it.sayservice.platform.core.message.CoreProtoBean.POIProtoBean poi;
+    public it.sayservice.platform.core.message.CoreProtoBean.POIProtoBean getPoi() {
+      return poi;
+    }
+    public void setPoi(it.sayservice.platform.core.message.CoreProtoBean.POIProtoBean poi) {
+      this.poi = poi;
+    }
+    
+    
+    public OrganizzazioneFamigliaProtoBean() {
+    	super();
+    }
+    
+    public OrganizzazioneFamigliaProtoBean(eu.trentorise.smartcampus.service.trentinofamiglia.data.message.Trentinofamiglia.OrganizzazioneFamiglia reference) {
+      super();
+                        setName(reference.getName());
+                                    setStatus(reference.getStatus());
+                                    setLink(reference.getLink());
+                                    setPoi(new it.sayservice.platform.core.message.CoreProtoBean.POIProtoBean(reference.getPoi()));
+                      }  
+
+    public OrganizzazioneFamigliaProtoBean(XSSData data) throws XSSDataException {
+      super();
+                        if (data.get("name") != null && !data.get("name").isEmpty()) {
+            if (data.get("name").size()>1) throw new XSSDataException("Incorrect data cardinality for field name: expected single value.");
+            
+            Object item = data.get("name").get(0); 
+                            if (!(item instanceof DOMData)) throw new XSSDataException("Incorrect data type for field name: expected DOMData");
+                                  setName(convertToString(((DOMData)item).getStringValue()));
+                                      }
+                                if (data.get("status") != null && !data.get("status").isEmpty()) {
+            if (data.get("status").size()>1) throw new XSSDataException("Incorrect data cardinality for field status: expected single value.");
+            
+            Object item = data.get("status").get(0); 
+                            if (!(item instanceof DOMData)) throw new XSSDataException("Incorrect data type for field status: expected DOMData");
+                                  setStatus(convertToString(((DOMData)item).getStringValue()));
+                                      }
+                                if (data.get("link") != null && !data.get("link").isEmpty()) {
+            if (data.get("link").size()>1) throw new XSSDataException("Incorrect data cardinality for field link: expected single value.");
+            
+            Object item = data.get("link").get(0); 
+                            if (!(item instanceof DOMData)) throw new XSSDataException("Incorrect data type for field link: expected DOMData");
+                                  setLink(convertToString(((DOMData)item).getStringValue()));
+                                      }
+                                if (data.get("poi") != null && !data.get("poi").isEmpty()) {
+            if (data.get("poi").size()>1) throw new XSSDataException("Incorrect data cardinality for field poi: expected single value.");
+            
+            Object item = data.get("poi").get(0); 
+                          if (!(item instanceof XSSData)) throw new XSSDataException("Incorrect data type for field poi: expected XSSData");
+              setPoi(new it.sayservice.platform.core.message.CoreProtoBean.POIProtoBean((XSSData)item));
+                      }
+                  }  
+
+    
+    public eu.trentorise.smartcampus.service.trentinofamiglia.data.message.Trentinofamiglia.OrganizzazioneFamiglia buildMessage() {
+      eu.trentorise.smartcampus.service.trentinofamiglia.data.message.Trentinofamiglia.OrganizzazioneFamiglia .Builder builder = eu.trentorise.smartcampus.service.trentinofamiglia.data.message.Trentinofamiglia.OrganizzazioneFamiglia .newBuilder();
+                        if (getName() != null) {
+      	builder.setName(getName());
+      }
+                                    if (getStatus() != null) {
+      	builder.setStatus(getStatus());
+      }
+                                    if (getLink() != null) {
+      	builder.setLink(getLink());
+      }
+                                    if (getPoi() != null) {
+      	builder.setPoi(getPoi() .buildMessage());
+      }
+                        return builder.buildPartial();
+    }
+    
+    
+  }
 
  
   protected static double convertToDouble(String value) {
