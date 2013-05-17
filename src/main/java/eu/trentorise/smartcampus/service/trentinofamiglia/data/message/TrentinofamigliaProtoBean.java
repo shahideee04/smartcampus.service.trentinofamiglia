@@ -82,6 +82,14 @@ public class TrentinofamigliaProtoBean {
       this.place = place;
     }
     
+          private Boolean certified;
+    public Boolean getCertified() {
+      return certified;
+    }
+    public void setCertified(Boolean certified) {
+      this.certified = certified;
+    }
+    
           private it.sayservice.platform.core.message.CoreProtoBean.POIProtoBean poi;
     public it.sayservice.platform.core.message.CoreProtoBean.POIProtoBean getPoi() {
       return poi;
@@ -105,6 +113,7 @@ public class TrentinofamigliaProtoBean {
                                     setDays(reference.getDays());
                                     setOrganization(reference.getOrganization());
                                     setPlace(reference.getPlace());
+                                    setCertified(reference.getCertified());
                                     setPoi(new it.sayservice.platform.core.message.CoreProtoBean.POIProtoBean(reference.getPoi()));
                       }  
 
@@ -166,6 +175,13 @@ public class TrentinofamigliaProtoBean {
                             if (!(item instanceof DOMData)) throw new XSSDataException("Incorrect data type for field place: expected DOMData");
                                   setPlace(convertToString(((DOMData)item).getStringValue()));
                                       }
+                                if (data.get("certified") != null && !data.get("certified").isEmpty()) {
+            if (data.get("certified").size()>1) throw new XSSDataException("Incorrect data cardinality for field certified: expected single value.");
+            
+            Object item = data.get("certified").get(0); 
+                            if (!(item instanceof DOMData)) throw new XSSDataException("Incorrect data type for field certified: expected DOMData");
+                                  setCertified(convertToBoolean(((DOMData)item).getStringValue()));
+                                      }
                                 if (data.get("poi") != null && !data.get("poi").isEmpty()) {
             if (data.get("poi").size()>1) throw new XSSDataException("Incorrect data cardinality for field poi: expected single value.");
             
@@ -201,6 +217,9 @@ public class TrentinofamigliaProtoBean {
       }
                                     if (getPlace() != null) {
       	builder.setPlace(getPlace());
+      }
+                                    if (getCertified() != null) {
+      	builder.setCertified(getCertified());
       }
                                     if (getPoi() != null) {
       	builder.setPoi(getPoi() .buildMessage());

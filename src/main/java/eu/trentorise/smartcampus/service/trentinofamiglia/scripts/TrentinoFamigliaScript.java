@@ -51,6 +51,8 @@ public class TrentinoFamigliaScript {
 					builder.setDays(ta.getLX0027AttivitàX0020SiX0020SvolgeX0020NeiX0020SeguentiX0020Giorni());
 					builder.setOrganization(org.getNomeOrganizzazione());
 					builder.setPlace(tt.getComuni());
+					String certified = ta.getLX0027AttivitàX0020ÈX0020MarchiataX0020X0022FamilyX0020InX0020TrentinoX0022X003F();
+					builder.setCertified(certified.startsWith("s")?true:false);
 					EventoFamiglia event = builder.build();
 					
 					map.put(tt.getComuni(), event);
