@@ -1,10 +1,9 @@
 package eu.trentorise.smartcampus.service.trentinofamiglia.scripts;
 
 import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileReader;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.io.StringReader;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -26,17 +25,17 @@ import eu.trentorise.smartcampus.service.trentinofamiglia.jaxb.Dataroot.TABOrg.T
 
 public class TrentinoFamigliaScript {
 
-	public List<Message> parseEstate() throws Exception {
+	public List<Message> parseEstate(String s) throws Exception {
 		try {
 		List<Message> result = new ArrayList<Message>();
 
 		JAXBContext jc = JAXBContext.newInstance("eu.trentorise.smartcampus.service.trentinofamiglia.jaxb");
 		Unmarshaller u = jc.createUnmarshaller();
 
-		InputStream rs = Thread.currentThread().getContextClassLoader().getResourceAsStream("service/trentinofamiglia/estate_giovani_e_famiglia_2013.xml");
-		
-		StreamSource ss = new StreamSource(rs);
-		Dataroot dataroot = (Dataroot)u.unmarshal(ss);
+//		InputStream rs = Thread.currentThread().getContextClassLoader().getResourceAsStream("service/trentinofamiglia/estate_giovani_e_famiglia_2013.xml");
+//		
+//		StreamSource ss = new StreamSource(rs);
+		Dataroot dataroot = (Dataroot)u.unmarshal(new StringReader(s));
 		
 		for (TABOrg org : dataroot.getTABOrg()) {
 			for (TABAttività ta : org.getTABAttività()) {
@@ -94,27 +93,26 @@ public class TrentinoFamigliaScript {
 		}
 	}
 	
-	public List<Message> parseOrganizzazioni() throws Exception {
+	public List<Message> parseOrganizzazioni(String s) throws Exception {
 		List<Message> result = new ArrayList<Message>();
 		try {
-		InputStream rs = Thread.currentThread().getContextClassLoader().getResourceAsStream("service/trentinofamiglia/registro_organizzazioni_certificate_familyaudit.csv");
-		InputStreamReader isr = new InputStreamReader(rs);
-		BufferedReader br = new BufferedReader(isr);
+//		InputStream rs = Thread.currentThread().getContextClassLoader().getResourceAsStream("service/trentinofamiglia/registro_organizzazioni_certificate_familyaudit.csv");
+//		InputStreamReader isr = new InputStreamReader(rs);
+		BufferedReader br = new BufferedReader(new StringReader(s));
 		
 		String line = null;
+		boolean first = true;
 		while ((line = br.readLine()) != null) {
-			String words[] = line.split(";");
-			try {
-			Integer.parseInt(words[0]);
-			} catch (NumberFormatException e) {
+			if (first) {
+				first = false;
 				continue;
-			}
+			}			
+			System.err.println(line);
+			String words[] = line.split(";");
 			OrganizzazioneFamiglia.Builder builder = OrganizzazioneFamiglia.newBuilder();
-			builder.setName(words[1]);
-			builder.setStatus(words[2]);
-			if (words.length == 8) {
-				builder.setLink(words[7]);
-			}
+			builder.setName(words[1].replace("\"", ""));
+			builder.setStatus(words[2].replace("\"", ""));
+			builder.setLink(words[8].replace("\"", ""));
 			
 			result.add(builder.build());
 		}		

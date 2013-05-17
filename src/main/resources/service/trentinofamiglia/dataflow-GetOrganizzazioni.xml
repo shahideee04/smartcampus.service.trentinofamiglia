@@ -4,11 +4,26 @@ xmlns="http://www.example.org/mml-schema"
 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 xsi:schemaLocation="http://www.example.org/mml-schema mml-schema.xsd ">
 
+	<variable name="organizzazioni" type="String"/>
 	<variable name="organizations" type="java.util.List"/>
+
+	<httpConnector name="connector" method="GET" encoding="UTF-8"/>
+	
+	<connect name="c1" connector="connector" outputVar="organizzazioni" transformer="string">
+		<properties>
+			<property name="url">
+				<value>"http://dati.trentino.it/it/storage/f/2013-05-16T105357/Registro_organizzazioni_certificate_Audit.csv"</value>
+			</property>
+		</properties>
+	</connect>	
+
 
 	<script outputVar="organizations">
 		<className>eu.trentorise.smartcampus.service.trentinofamiglia.scripts.TrentinoFamigliaScript</className>
 		<method>parseOrganizzazioni</method>
+		<variables>
+			<value>organizzazioni</value>
+		</variables>			
 	</script>		
 	
 	<foreach item="organization" itemClass="eu.trentorise.smartcampus.service.trentinofamiglia.data.message.Trentinofamiglia.OrganizzazioneFamiglia" aggregateVariable="list" outputVar="output" writeAction="append" writeMethod="addAll">

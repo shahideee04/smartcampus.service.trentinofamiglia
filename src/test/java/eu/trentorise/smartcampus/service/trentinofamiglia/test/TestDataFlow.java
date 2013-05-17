@@ -27,20 +27,22 @@ public class TestDataFlow extends TestCase {
 		
 		DataFlowTestHelper helper = new DataFlowTestHelper();
 		Map<String, Object> parameters = new HashMap<String, Object>();
-		Map<String, Object> out = helper.executeDataFlow("smartcampus.service.trentinofamiglia", "GetEventi", new GetEventiDataFlow(), parameters);
-		List<Message> data = (List<Message>)out.get("data");
+//		Map<String, Object> out1 = helper.executeDataFlow("smartcampus.service.trentinofamiglia", "GetEventi", new GetEventiDataFlow(), parameters);
+//		List<Message> data1 = (List<Message>)out1.get("data");
 //		for (Message msg: data) {
 //			System.err.println(((EventoFamiglia)msg));
 //			System.err.println("----------------------------------");
 //		}
-		System.err.println(data.size());
+//		System.err.println(data1.size());
 		
-		out = helper.executeDataFlow("smartcampus.service.trentinofamiglia", "GetOrganizzazioni", new GetOrganizzazioniDataFlow(), parameters);
-		data = (List<Message>)out.get("data");
-		for (Message msg: data) {
+		Map<String, Object> out2 = helper.executeDataFlow("smartcampus.service.trentinofamiglia", "GetOrganizzazioni", new GetOrganizzazioniDataFlow(), parameters);
+		List<Message> data2 = (List<Message>)out2.get("data");
+		for (Message msg: data2) {
 			System.err.println(((OrganizzazioneFamiglia)msg).getName());
+			System.err.println(((OrganizzazioneFamiglia)msg).getStatus());
+			System.err.println(((OrganizzazioneFamiglia)msg).getLink());
 			System.err.println("----------------------------------");
 		}		
-		System.err.println(data.size());
+		System.err.println(data2.size());
 	}
 }

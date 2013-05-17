@@ -4,11 +4,25 @@ xmlns="http://www.example.org/mml-schema"
 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 xsi:schemaLocation="http://www.example.org/mml-schema mml-schema.xsd ">
 
+	<variable name="estate" type="String"/>
 	<variable name="events" type="java.util.List"/>
+	
+	<httpConnector name="connector" method="GET" encoding="UTF-8"/>
+	
+	<connect name="c1" connector="connector" outputVar="estate" transformer="string">
+		<properties>
+			<property name="url">
+				<value>"http://dati.trentino.it/storage/f/2013-05-08T083538/Estate-giovani-e-famiglia_2013.xml"</value>
+			</property>
+		</properties>
+	</connect>		
 
 	<script outputVar="events">
 		<className>eu.trentorise.smartcampus.service.trentinofamiglia.scripts.TrentinoFamigliaScript</className>
 		<method>parseEstate</method>
+		<variables>
+			<value>estate</value>
+		</variables>		
 	</script>		
 	
 	<foreach item="event" itemClass="eu.trentorise.smartcampus.service.trentinofamiglia.data.message.Trentinofamiglia.EventoFamiglia" aggregateVariable="list" outputVar="output" writeAction="append" writeMethod="addAll">
