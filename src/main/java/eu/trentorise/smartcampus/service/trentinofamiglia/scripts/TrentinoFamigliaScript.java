@@ -109,7 +109,6 @@ public class TrentinoFamigliaScript {
 				first = false;
 				continue;
 			}			
-			System.err.println(line);
 			String words[] = line.split(";");
 			OrganizzazioneFamiglia.Builder builder = OrganizzazioneFamiglia.newBuilder();
 			builder.setName(words[1].replace("\"", ""));
