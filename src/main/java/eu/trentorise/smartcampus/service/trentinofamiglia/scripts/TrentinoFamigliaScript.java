@@ -235,7 +235,8 @@ public class TrentinoFamigliaScript {
 		addressBuilder.setStreet(words[3].replace("\"", ""));
 		addressBuilder.setCity(removeSpaces(words[4]).replace("\"", ""));
 		addressBuilder.setRegion(removeSpaces(words[5]).replace("\"", ""));
-		addressBuilder.setCountry("Italy");
+		addressBuilder.setCountry("ITA");
+		addressBuilder.setState("Italy");
 		addressBuilder.setLang("en");
 		addressBuilder.setPostalCode("");
 		
