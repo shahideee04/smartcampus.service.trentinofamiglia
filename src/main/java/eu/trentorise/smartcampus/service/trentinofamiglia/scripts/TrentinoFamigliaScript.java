@@ -1,5 +1,9 @@
 package eu.trentorise.smartcampus.service.trentinofamiglia.scripts;
 
+import it.sayservice.platform.core.message.Core.Address;
+import it.sayservice.platform.core.message.Core.Coordinate;
+import it.sayservice.platform.core.message.Core.POI;
+
 import java.io.BufferedReader;
 import java.io.StringReader;
 import java.util.ArrayList;
@@ -154,7 +158,9 @@ public class TrentinoFamigliaScript {
 				builder.setName(words[1].replace("\"", ""));
 				builder.setStatus(words[2].replace("\"", ""));
 				builder.setLink(words[8].replace("\"", ""));
-
+				POI poi = buildOrganizzazioniPOI(words);
+				builder.setPoi(poi);
+				
 				result.add(builder.build());
 			}
 
@@ -192,6 +198,70 @@ public class TrentinoFamigliaScript {
 		}
 
 		return "";
+	}	
+	
+	public String getEventiURL(Document doc) throws XPathExpressionException {
+		XPath xPath = XPathFactory.newInstance().newXPath();
+		NodeList nodes = (NodeList) xPath.evaluate(
+				"//*[@id='dataset-resources']/ul/li/a",
+				doc.getDocumentElement(), XPathConstants.NODESET);
+
+		if (nodes.getLength() == 1) {
+			String url = ((Element)nodes.item(0)).getAttribute("href");
+			return url;
+		}
+
+		return "";
+	}
+	
+	public String getEventiXMLURL(Document doc) throws XPathExpressionException {
+		XPath xPath = XPathFactory.newInstance().newXPath();
+		NodeList nodes = (NodeList) xPath.evaluate(
+				"//*[@id='content']/div/div[1]/a[1]",
+				doc.getDocumentElement(), XPathConstants.NODESET);
+
+		if (nodes.getLength() == 1) {
+			String url = ((Element)nodes.item(0)).getAttribute("href");
+			return url;
+		}
+
+		return "";
+	}		
+	
+	public POI buildOrganizzazioniPOI(String[] words) {
+		POI.Builder poiBuilder = POI.newBuilder();
+		
+		Address.Builder addressBuilder = Address.newBuilder();
+		addressBuilder.setStreet(words[3].replace("\"", ""));
+		addressBuilder.setCity(removeSpaces(words[4]).replace("\"", ""));
+		addressBuilder.setRegion(removeSpaces(words[5]).replace("\"", ""));
+		addressBuilder.setCountry("Italy");
+		addressBuilder.setLang("en");
+		addressBuilder.setPostalCode("");
+		
+		poiBuilder.setAddress(addressBuilder.build());
+		
+		Coordinate.Builder coordBuilder = Coordinate.newBuilder();
+		
+		coordBuilder.setLatitude(Double.parseDouble(transformLatLong(words[6].replace("\"", ""))));
+		coordBuilder.setLongitude(Double.parseDouble(transformLatLong(words[7].replace("\"", ""))));
+		poiBuilder.setCoordinate(coordBuilder.build());
+		
+		poiBuilder.setDatasetId("smart");
+		poiBuilder.setPoiId(words[1].replace("\"", "")  + "@smartcampus.service.trentinofamiglia");
+		
+		
+		return poiBuilder.build();
+	}
+	
+	private static String removeSpaces(String s) {
+		return s.replaceAll("[\\s]+", " ").trim();
+	}
+
+	private static String transformLatLong(String ll) {
+		String s = ll.replaceFirst("\\.", ",").replaceFirst("\\.", "")
+				.replaceAll(",", ".");
+		return s;
 	}	
 
 }

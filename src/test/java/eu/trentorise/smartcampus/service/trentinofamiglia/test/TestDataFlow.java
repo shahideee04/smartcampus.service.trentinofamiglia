@@ -36,12 +36,12 @@ public class TestDataFlow extends TestCase {
 		
 		Map<String, Object> out2 = helper.executeDataFlow("smartcampus.service.trentinofamiglia", "GetOrganizzazioni", new GetOrganizzazioniDataFlow(), parameters);
 		List<Message> data2 = (List<Message>)out2.get("data");
-//		for (Message msg: data2) {
-//			System.err.println(((OrganizzazioneFamiglia)msg).getName());
-//			System.err.println(((OrganizzazioneFamiglia)msg).getStatus());
-//			System.err.println(((OrganizzazioneFamiglia)msg).getLink());
-//			System.err.println("----------------------------------");
-//		}
+		for (Message msg: data2) {
+			System.err.println(((OrganizzazioneFamiglia)msg).getName());
+			System.err.println(((OrganizzazioneFamiglia)msg).getStatus());
+			System.err.println(((OrganizzazioneFamiglia)msg).getPoi());
+			System.err.println("----------------------------------");
+		}
 		
 //		System.err.println(data1.size());
 		System.err.println(data2.size());

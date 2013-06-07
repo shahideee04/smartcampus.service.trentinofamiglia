@@ -9,7 +9,6 @@ xsi:schemaLocation="http://www.example.org/mml-schema mml-schema.xsd ">
 	<variable name="url1" type="String"/>
 	<variable name="url2" type="String"/>
 	<variable name="organizzazioni" type="String"/>
-	<variable name="organizations" type="java.util.List"/>
 
 	<httpConnector name="connector" method="GET" encoding="UTF-8"/>
 	
@@ -54,7 +53,7 @@ xsi:schemaLocation="http://www.example.org/mml-schema mml-schema.xsd ">
 	</connect>	
 
 
-	<script outputVar="organizations">
+	<script outputVar="output">
 		<className>eu.trentorise.smartcampus.service.trentinofamiglia.scripts.TrentinoFamigliaScript</className>
 		<method>parseOrganizzazioni</method>
 		<variables>
@@ -62,13 +61,14 @@ xsi:schemaLocation="http://www.example.org/mml-schema mml-schema.xsd ">
 		</variables>			
 	</script>		
 	
+	<!-- 
 	<foreach item="organization" itemClass="eu.trentorise.smartcampus.service.trentinofamiglia.data.message.Trentinofamiglia.OrganizzazioneFamiglia" aggregateVariable="list" outputVar="output" writeAction="append" writeMethod="addAll">
 		<items>organizations</items>
 		<geolocalize outputVar="list" inputVar="organization" writeAction="append" attribute="poi" onError="continue">
 			<poiName>organization.getName()</poiName>
 		</geolocalize>
 	</foreach>
-	
+	 -->
 	
 	
 </dataflow>
