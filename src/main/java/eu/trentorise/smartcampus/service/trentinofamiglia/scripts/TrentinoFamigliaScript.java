@@ -18,6 +18,7 @@ import javax.xml.xpath.XPathConstants;
 import javax.xml.xpath.XPathExpressionException;
 import javax.xml.xpath.XPathFactory;
 
+import org.apache.commons.lang.StringUtils;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.NodeList;
@@ -152,7 +153,13 @@ public class TrentinoFamigliaScript {
 					first = false;
 					continue;
 				}
-				String words[] = line.split(";");
+				
+				int occ = StringUtils.countMatches(line, ",");
+				int ocsc = StringUtils.countMatches(line, ";");
+				
+				String sep = (occ > ocsc)?",":";";
+				
+				String words[] = line.split(sep);
 				OrganizzazioneFamiglia.Builder builder = OrganizzazioneFamiglia
 						.newBuilder();
 				builder.setName(words[1].replace("\"", ""));
