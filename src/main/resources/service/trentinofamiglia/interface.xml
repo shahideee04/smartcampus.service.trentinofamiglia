@@ -11,8 +11,6 @@
 
 	<implementation package="eu.trentorise.smartcampus.service.trentinofamiglia">
 		<operationImpl name="GetEventi"/>
-	</implementation>
-	<implementation package="eu.trentorise.smartcampus.service.trentinofamiglia">
 		<operationImpl name="GetOrganizzazioni"/>
 	</implementation>	
 	
