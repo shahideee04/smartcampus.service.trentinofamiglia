@@ -1328,19 +1328,23 @@ public final class Trentinofamiglia {
   public interface OrganizzazioneFamigliaOrBuilder
       extends com.google.protobuf.MessageOrBuilder {
     
-    // required string name = 1;
+    // required string order = 1;
+    boolean hasOrder();
+    String getOrder();
+    
+    // required string name = 2;
     boolean hasName();
     String getName();
     
-    // required string status = 2;
+    // required string status = 3;
     boolean hasStatus();
     String getStatus();
     
-    // optional string link = 3;
+    // optional string link = 4;
     boolean hasLink();
     String getLink();
     
-    // optional .it.sayservice.platform.core.message.POI poi = 4;
+    // optional .it.sayservice.platform.core.message.POI poi = 5;
     boolean hasPoi();
     it.sayservice.platform.core.message.Core.POI getPoi();
     it.sayservice.platform.core.message.Core.POIOrBuilder getPoiOrBuilder();
@@ -1374,11 +1378,43 @@ public final class Trentinofamiglia {
     }
     
     private int bitField0_;
-    // required string name = 1;
-    public static final int NAME_FIELD_NUMBER = 1;
+    // required string order = 1;
+    public static final int ORDER_FIELD_NUMBER = 1;
+    private java.lang.Object order_;
+    public boolean hasOrder() {
+      return ((bitField0_ & 0x00000001) == 0x00000001);
+    }
+    public String getOrder() {
+      java.lang.Object ref = order_;
+      if (ref instanceof String) {
+        return (String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        String s = bs.toStringUtf8();
+        if (com.google.protobuf.Internal.isValidUtf8(bs)) {
+          order_ = s;
+        }
+        return s;
+      }
+    }
+    private com.google.protobuf.ByteString getOrderBytes() {
+      java.lang.Object ref = order_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8((String) ref);
+        order_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    
+    // required string name = 2;
+    public static final int NAME_FIELD_NUMBER = 2;
     private java.lang.Object name_;
     public boolean hasName() {
-      return ((bitField0_ & 0x00000001) == 0x00000001);
+      return ((bitField0_ & 0x00000002) == 0x00000002);
     }
     public String getName() {
       java.lang.Object ref = name_;
@@ -1406,11 +1442,11 @@ public final class Trentinofamiglia {
       }
     }
     
-    // required string status = 2;
-    public static final int STATUS_FIELD_NUMBER = 2;
+    // required string status = 3;
+    public static final int STATUS_FIELD_NUMBER = 3;
     private java.lang.Object status_;
     public boolean hasStatus() {
-      return ((bitField0_ & 0x00000002) == 0x00000002);
+      return ((bitField0_ & 0x00000004) == 0x00000004);
     }
     public String getStatus() {
       java.lang.Object ref = status_;
@@ -1438,11 +1474,11 @@ public final class Trentinofamiglia {
       }
     }
     
-    // optional string link = 3;
-    public static final int LINK_FIELD_NUMBER = 3;
+    // optional string link = 4;
+    public static final int LINK_FIELD_NUMBER = 4;
     private java.lang.Object link_;
     public boolean hasLink() {
-      return ((bitField0_ & 0x00000004) == 0x00000004);
+      return ((bitField0_ & 0x00000008) == 0x00000008);
     }
     public String getLink() {
       java.lang.Object ref = link_;
@@ -1470,11 +1506,11 @@ public final class Trentinofamiglia {
       }
     }
     
-    // optional .it.sayservice.platform.core.message.POI poi = 4;
-    public static final int POI_FIELD_NUMBER = 4;
+    // optional .it.sayservice.platform.core.message.POI poi = 5;
+    public static final int POI_FIELD_NUMBER = 5;
     private it.sayservice.platform.core.message.Core.POI poi_;
     public boolean hasPoi() {
-      return ((bitField0_ & 0x00000008) == 0x00000008);
+      return ((bitField0_ & 0x00000010) == 0x00000010);
     }
     public it.sayservice.platform.core.message.Core.POI getPoi() {
       return poi_;
@@ -1484,6 +1520,7 @@ public final class Trentinofamiglia {
     }
     
     private void initFields() {
+      order_ = "";
       name_ = "";
       status_ = "";
       link_ = "";
@@ -1494,6 +1531,10 @@ public final class Trentinofamiglia {
       byte isInitialized = memoizedIsInitialized;
       if (isInitialized != -1) return isInitialized == 1;
       
+      if (!hasOrder()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
       if (!hasName()) {
         memoizedIsInitialized = 0;
         return false;
@@ -1516,16 +1557,19 @@ public final class Trentinofamiglia {
                         throws java.io.IOException {
       getSerializedSize();
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
-        output.writeBytes(1, getNameBytes());
+        output.writeBytes(1, getOrderBytes());
       }
       if (((bitField0_ & 0x00000002) == 0x00000002)) {
-        output.writeBytes(2, getStatusBytes());
+        output.writeBytes(2, getNameBytes());
       }
       if (((bitField0_ & 0x00000004) == 0x00000004)) {
-        output.writeBytes(3, getLinkBytes());
+        output.writeBytes(3, getStatusBytes());
       }
       if (((bitField0_ & 0x00000008) == 0x00000008)) {
-        output.writeMessage(4, poi_);
+        output.writeBytes(4, getLinkBytes());
+      }
+      if (((bitField0_ & 0x00000010) == 0x00000010)) {
+        output.writeMessage(5, poi_);
       }
       getUnknownFields().writeTo(output);
     }
@@ -1538,19 +1582,23 @@ public final class Trentinofamiglia {
       size = 0;
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeBytesSize(1, getNameBytes());
+          .computeBytesSize(1, getOrderBytes());
       }
       if (((bitField0_ & 0x00000002) == 0x00000002)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeBytesSize(2, getStatusBytes());
+          .computeBytesSize(2, getNameBytes());
       }
       if (((bitField0_ & 0x00000004) == 0x00000004)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeBytesSize(3, getLinkBytes());
+          .computeBytesSize(3, getStatusBytes());
       }
       if (((bitField0_ & 0x00000008) == 0x00000008)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(4, poi_);
+          .computeBytesSize(4, getLinkBytes());
+      }
+      if (((bitField0_ & 0x00000010) == 0x00000010)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(5, poi_);
       }
       size += getUnknownFields().getSerializedSize();
       memoizedSerializedSize = size;
@@ -1677,18 +1725,20 @@ public final class Trentinofamiglia {
       
       public Builder clear() {
         super.clear();
-        name_ = "";
+        order_ = "";
         bitField0_ = (bitField0_ & ~0x00000001);
-        status_ = "";
+        name_ = "";
         bitField0_ = (bitField0_ & ~0x00000002);
-        link_ = "";
+        status_ = "";
         bitField0_ = (bitField0_ & ~0x00000004);
+        link_ = "";
+        bitField0_ = (bitField0_ & ~0x00000008);
         if (poiBuilder_ == null) {
           poi_ = it.sayservice.platform.core.message.Core.POI.getDefaultInstance();
         } else {
           poiBuilder_.clear();
         }
-        bitField0_ = (bitField0_ & ~0x00000008);
+        bitField0_ = (bitField0_ & ~0x00000010);
         return this;
       }
       
@@ -1730,17 +1780,21 @@ public final class Trentinofamiglia {
         if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
           to_bitField0_ |= 0x00000001;
         }
-        result.name_ = name_;
+        result.order_ = order_;
         if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
           to_bitField0_ |= 0x00000002;
         }
-        result.status_ = status_;
+        result.name_ = name_;
         if (((from_bitField0_ & 0x00000004) == 0x00000004)) {
           to_bitField0_ |= 0x00000004;
         }
-        result.link_ = link_;
+        result.status_ = status_;
         if (((from_bitField0_ & 0x00000008) == 0x00000008)) {
           to_bitField0_ |= 0x00000008;
+        }
+        result.link_ = link_;
+        if (((from_bitField0_ & 0x00000010) == 0x00000010)) {
+          to_bitField0_ |= 0x00000010;
         }
         if (poiBuilder_ == null) {
           result.poi_ = poi_;
@@ -1763,6 +1817,9 @@ public final class Trentinofamiglia {
       
       public Builder mergeFrom(eu.trentorise.smartcampus.service.trentinofamiglia.data.message.Trentinofamiglia.OrganizzazioneFamiglia other) {
         if (other == eu.trentorise.smartcampus.service.trentinofamiglia.data.message.Trentinofamiglia.OrganizzazioneFamiglia.getDefaultInstance()) return this;
+        if (other.hasOrder()) {
+          setOrder(other.getOrder());
+        }
         if (other.hasName()) {
           setName(other.getName());
         }
@@ -1780,6 +1837,10 @@ public final class Trentinofamiglia {
       }
       
       public final boolean isInitialized() {
+        if (!hasOrder()) {
+          
+          return false;
+        }
         if (!hasName()) {
           
           return false;
@@ -1822,20 +1883,25 @@ public final class Trentinofamiglia {
             }
             case 10: {
               bitField0_ |= 0x00000001;
-              name_ = input.readBytes();
+              order_ = input.readBytes();
               break;
             }
             case 18: {
               bitField0_ |= 0x00000002;
-              status_ = input.readBytes();
+              name_ = input.readBytes();
               break;
             }
             case 26: {
               bitField0_ |= 0x00000004;
-              link_ = input.readBytes();
+              status_ = input.readBytes();
               break;
             }
             case 34: {
+              bitField0_ |= 0x00000008;
+              link_ = input.readBytes();
+              break;
+            }
+            case 42: {
               it.sayservice.platform.core.message.Core.POI.Builder subBuilder = it.sayservice.platform.core.message.Core.POI.newBuilder();
               if (hasPoi()) {
                 subBuilder.mergeFrom(getPoi());
@@ -1850,10 +1916,46 @@ public final class Trentinofamiglia {
       
       private int bitField0_;
       
-      // required string name = 1;
+      // required string order = 1;
+      private java.lang.Object order_ = "";
+      public boolean hasOrder() {
+        return ((bitField0_ & 0x00000001) == 0x00000001);
+      }
+      public String getOrder() {
+        java.lang.Object ref = order_;
+        if (!(ref instanceof String)) {
+          String s = ((com.google.protobuf.ByteString) ref).toStringUtf8();
+          order_ = s;
+          return s;
+        } else {
+          return (String) ref;
+        }
+      }
+      public Builder setOrder(String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000001;
+        order_ = value;
+        onChanged();
+        return this;
+      }
+      public Builder clearOrder() {
+        bitField0_ = (bitField0_ & ~0x00000001);
+        order_ = getDefaultInstance().getOrder();
+        onChanged();
+        return this;
+      }
+      void setOrder(com.google.protobuf.ByteString value) {
+        bitField0_ |= 0x00000001;
+        order_ = value;
+        onChanged();
+      }
+      
+      // required string name = 2;
       private java.lang.Object name_ = "";
       public boolean hasName() {
-        return ((bitField0_ & 0x00000001) == 0x00000001);
+        return ((bitField0_ & 0x00000002) == 0x00000002);
       }
       public String getName() {
         java.lang.Object ref = name_;
@@ -1869,27 +1971,27 @@ public final class Trentinofamiglia {
         if (value == null) {
     throw new NullPointerException();
   }
-  bitField0_ |= 0x00000001;
+  bitField0_ |= 0x00000002;
         name_ = value;
         onChanged();
         return this;
       }
       public Builder clearName() {
-        bitField0_ = (bitField0_ & ~0x00000001);
+        bitField0_ = (bitField0_ & ~0x00000002);
         name_ = getDefaultInstance().getName();
         onChanged();
         return this;
       }
       void setName(com.google.protobuf.ByteString value) {
-        bitField0_ |= 0x00000001;
+        bitField0_ |= 0x00000002;
         name_ = value;
         onChanged();
       }
       
-      // required string status = 2;
+      // required string status = 3;
       private java.lang.Object status_ = "";
       public boolean hasStatus() {
-        return ((bitField0_ & 0x00000002) == 0x00000002);
+        return ((bitField0_ & 0x00000004) == 0x00000004);
       }
       public String getStatus() {
         java.lang.Object ref = status_;
@@ -1905,27 +2007,27 @@ public final class Trentinofamiglia {
         if (value == null) {
     throw new NullPointerException();
   }
-  bitField0_ |= 0x00000002;
+  bitField0_ |= 0x00000004;
         status_ = value;
         onChanged();
         return this;
       }
       public Builder clearStatus() {
-        bitField0_ = (bitField0_ & ~0x00000002);
+        bitField0_ = (bitField0_ & ~0x00000004);
         status_ = getDefaultInstance().getStatus();
         onChanged();
         return this;
       }
       void setStatus(com.google.protobuf.ByteString value) {
-        bitField0_ |= 0x00000002;
+        bitField0_ |= 0x00000004;
         status_ = value;
         onChanged();
       }
       
-      // optional string link = 3;
+      // optional string link = 4;
       private java.lang.Object link_ = "";
       public boolean hasLink() {
-        return ((bitField0_ & 0x00000004) == 0x00000004);
+        return ((bitField0_ & 0x00000008) == 0x00000008);
       }
       public String getLink() {
         java.lang.Object ref = link_;
@@ -1941,29 +2043,29 @@ public final class Trentinofamiglia {
         if (value == null) {
     throw new NullPointerException();
   }
-  bitField0_ |= 0x00000004;
+  bitField0_ |= 0x00000008;
         link_ = value;
         onChanged();
         return this;
       }
       public Builder clearLink() {
-        bitField0_ = (bitField0_ & ~0x00000004);
+        bitField0_ = (bitField0_ & ~0x00000008);
         link_ = getDefaultInstance().getLink();
         onChanged();
         return this;
       }
       void setLink(com.google.protobuf.ByteString value) {
-        bitField0_ |= 0x00000004;
+        bitField0_ |= 0x00000008;
         link_ = value;
         onChanged();
       }
       
-      // optional .it.sayservice.platform.core.message.POI poi = 4;
+      // optional .it.sayservice.platform.core.message.POI poi = 5;
       private it.sayservice.platform.core.message.Core.POI poi_ = it.sayservice.platform.core.message.Core.POI.getDefaultInstance();
       private com.google.protobuf.SingleFieldBuilder<
           it.sayservice.platform.core.message.Core.POI, it.sayservice.platform.core.message.Core.POI.Builder, it.sayservice.platform.core.message.Core.POIOrBuilder> poiBuilder_;
       public boolean hasPoi() {
-        return ((bitField0_ & 0x00000008) == 0x00000008);
+        return ((bitField0_ & 0x00000010) == 0x00000010);
       }
       public it.sayservice.platform.core.message.Core.POI getPoi() {
         if (poiBuilder_ == null) {
@@ -1982,7 +2084,7 @@ public final class Trentinofamiglia {
         } else {
           poiBuilder_.setMessage(value);
         }
-        bitField0_ |= 0x00000008;
+        bitField0_ |= 0x00000010;
         return this;
       }
       public Builder setPoi(
@@ -1993,12 +2095,12 @@ public final class Trentinofamiglia {
         } else {
           poiBuilder_.setMessage(builderForValue.build());
         }
-        bitField0_ |= 0x00000008;
+        bitField0_ |= 0x00000010;
         return this;
       }
       public Builder mergePoi(it.sayservice.platform.core.message.Core.POI value) {
         if (poiBuilder_ == null) {
-          if (((bitField0_ & 0x00000008) == 0x00000008) &&
+          if (((bitField0_ & 0x00000010) == 0x00000010) &&
               poi_ != it.sayservice.platform.core.message.Core.POI.getDefaultInstance()) {
             poi_ =
               it.sayservice.platform.core.message.Core.POI.newBuilder(poi_).mergeFrom(value).buildPartial();
@@ -2009,7 +2111,7 @@ public final class Trentinofamiglia {
         } else {
           poiBuilder_.mergeFrom(value);
         }
-        bitField0_ |= 0x00000008;
+        bitField0_ |= 0x00000010;
         return this;
       }
       public Builder clearPoi() {
@@ -2019,11 +2121,11 @@ public final class Trentinofamiglia {
         } else {
           poiBuilder_.clear();
         }
-        bitField0_ = (bitField0_ & ~0x00000008);
+        bitField0_ = (bitField0_ & ~0x00000010);
         return this;
       }
       public it.sayservice.platform.core.message.Core.POI.Builder getPoiBuilder() {
-        bitField0_ |= 0x00000008;
+        bitField0_ |= 0x00000010;
         onChanged();
         return getPoiFieldBuilder().getBuilder();
       }
@@ -2086,10 +2188,10 @@ public final class Trentinofamiglia {
       "ys\030\006 \002(\t\022\024\n\014organization\030\007 \002(\t\022\r\n\005place\030" +
       "\010 \002(\t\022\021\n\tcertified\030\t \002(\010\0225\n\003poi\030\n \001(\0132(." +
       "it.sayservice.platform.core.message.POI\"" +
-      "{\n\026OrganizzazioneFamiglia\022\014\n\004name\030\001 \002(\t\022" +
-      "\016\n\006status\030\002 \002(\t\022\014\n\004link\030\003 \001(\t\0225\n\003poi\030\004 \001",
-      "(\0132(.it.sayservice.platform.core.message" +
-      ".POI"
+      "\212\001\n\026OrganizzazioneFamiglia\022\r\n\005order\030\001 \002(" +
+      "\t\022\014\n\004name\030\002 \002(\t\022\016\n\006status\030\003 \002(\t\022\014\n\004link\030",
+      "\004 \001(\t\0225\n\003poi\030\005 \001(\0132(.it.sayservice.platf" +
+      "orm.core.message.POI"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
       new com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner() {
@@ -2109,7 +2211,7 @@ public final class Trentinofamiglia {
           internal_static_eu_trentorise_smartcampus_service_trentinofamiglia_data_message_OrganizzazioneFamiglia_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
               internal_static_eu_trentorise_smartcampus_service_trentinofamiglia_data_message_OrganizzazioneFamiglia_descriptor,
-              new java.lang.String[] { "Name", "Status", "Link", "Poi", },
+              new java.lang.String[] { "Order", "Name", "Status", "Link", "Poi", },
               eu.trentorise.smartcampus.service.trentinofamiglia.data.message.Trentinofamiglia.OrganizzazioneFamiglia.class,
               eu.trentorise.smartcampus.service.trentinofamiglia.data.message.Trentinofamiglia.OrganizzazioneFamiglia.Builder.class);
           return null;

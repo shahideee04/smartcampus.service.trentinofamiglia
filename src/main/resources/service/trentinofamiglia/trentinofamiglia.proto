@@ -17,10 +17,11 @@ message EventoFamiglia {
 }
 
 message OrganizzazioneFamiglia {
- required string name = 1;
- required string status = 2;
- optional string link = 3;
- optional it.sayservice.platform.core.message.POI poi = 4;
+ required string order = 1;
+ required string name = 2;
+ required string status = 3;
+ optional string link = 4;
+ optional it.sayservice.platform.core.message.POI poi = 5;
 }
 
 

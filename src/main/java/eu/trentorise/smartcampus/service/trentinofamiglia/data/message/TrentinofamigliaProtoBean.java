@@ -230,6 +230,14 @@ public class TrentinofamigliaProtoBean {
     
   }
   public static class OrganizzazioneFamigliaProtoBean implements ProtoBean {
+          private String order;
+    public String getOrder() {
+      return order;
+    }
+    public void setOrder(String order) {
+      this.order = order;
+    }
+    
           private String name;
     public String getName() {
       return name;
@@ -269,7 +277,8 @@ public class TrentinofamigliaProtoBean {
     
     public OrganizzazioneFamigliaProtoBean(eu.trentorise.smartcampus.service.trentinofamiglia.data.message.Trentinofamiglia.OrganizzazioneFamiglia reference) {
       super();
-                        setName(reference.getName());
+                        setOrder(reference.getOrder());
+                                    setName(reference.getName());
                                     setStatus(reference.getStatus());
                                     setLink(reference.getLink());
                                     setPoi(new it.sayservice.platform.core.message.CoreProtoBean.POIProtoBean(reference.getPoi()));
@@ -277,7 +286,14 @@ public class TrentinofamigliaProtoBean {
 
     public OrganizzazioneFamigliaProtoBean(XSSData data) throws XSSDataException {
       super();
-                        if (data.get("name") != null && !data.get("name").isEmpty()) {
+                        if (data.get("order") != null && !data.get("order").isEmpty()) {
+            if (data.get("order").size()>1) throw new XSSDataException("Incorrect data cardinality for field order: expected single value.");
+            
+            Object item = data.get("order").get(0); 
+                            if (!(item instanceof DOMData)) throw new XSSDataException("Incorrect data type for field order: expected DOMData");
+                                  setOrder(convertToString(((DOMData)item).getStringValue()));
+                                      }
+                                if (data.get("name") != null && !data.get("name").isEmpty()) {
             if (data.get("name").size()>1) throw new XSSDataException("Incorrect data cardinality for field name: expected single value.");
             
             Object item = data.get("name").get(0); 
@@ -310,7 +326,10 @@ public class TrentinofamigliaProtoBean {
     
     public eu.trentorise.smartcampus.service.trentinofamiglia.data.message.Trentinofamiglia.OrganizzazioneFamiglia buildMessage() {
       eu.trentorise.smartcampus.service.trentinofamiglia.data.message.Trentinofamiglia.OrganizzazioneFamiglia .Builder builder = eu.trentorise.smartcampus.service.trentinofamiglia.data.message.Trentinofamiglia.OrganizzazioneFamiglia .newBuilder();
-                        if (getName() != null) {
+                        if (getOrder() != null) {
+      	builder.setOrder(getOrder());
+      }
+                                    if (getName() != null) {
       	builder.setName(getName());
       }
                                     if (getStatus() != null) {

@@ -162,6 +162,7 @@ public class TrentinoFamigliaScript {
 				String words[] = line.split(sep);
 				OrganizzazioneFamiglia.Builder builder = OrganizzazioneFamiglia
 						.newBuilder();
+				builder.setOrder("" + Integer.parseInt(words[0].replace("\"", "")));
 				builder.setName(words[1].replace("\"", ""));
 				builder.setStatus(words[2].replace("\"", ""));
 				builder.setLink(words[8].replace("\"", ""));
@@ -256,7 +257,8 @@ public class TrentinoFamigliaScript {
 		poiBuilder.setCoordinate(coordBuilder.build());
 		
 		poiBuilder.setDatasetId("smart");
-		poiBuilder.setPoiId(words[1].replace("\"", "")  + "@smartcampus.service.trentinofamiglia");
+		int pos = Integer.parseInt(words[0].replace("\"", ""));
+		poiBuilder.setPoiId(pos  + "@smartcampus.service.trentinofamiglia");
 		
 		
 		return poiBuilder.build();
