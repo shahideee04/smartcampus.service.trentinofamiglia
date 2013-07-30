@@ -23,6 +23,8 @@ import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.NodeList;
 
+import au.com.bytecode.opencsv.CSVReader;
+
 import com.google.protobuf.Message;
 
 import eu.trentorise.smartcampus.service.trentinofamiglia.data.message.Trentinofamiglia;
@@ -146,20 +148,22 @@ public class TrentinoFamigliaScript {
 			// InputStreamReader isr = new InputStreamReader(rs);
 			BufferedReader br = new BufferedReader(new StringReader(s));
 
-			String line = null;
+			int occ = StringUtils.countMatches(s, ",");
+			int ocsc = StringUtils.countMatches(s, ";");
+			
+			char sep = (occ > ocsc)?',':';';			
+			
 			boolean first = true;
-			while ((line = br.readLine()) != null) {
-				if (first) {
-					first = false;
-					continue;
-				}
+
+				CSVReader csvReader = new  CSVReader(br, sep, '"');
+				List<String[]> lines = csvReader.readAll();
 				
-				int occ = StringUtils.countMatches(line, ",");
-				int ocsc = StringUtils.countMatches(line, ";");
+				for (String words[]: lines) {
+					if (first) {
+						first = false;
+						continue;
+					}					
 				
-				String sep = (occ > ocsc)?",":";";
-				
-				String words[] = line.split(sep);
 				OrganizzazioneFamiglia.Builder builder = OrganizzazioneFamiglia
 						.newBuilder();
 				builder.setOrder("" + Integer.parseInt(words[0].replace("\"", "")));
@@ -239,6 +243,8 @@ public class TrentinoFamigliaScript {
 	public POI buildOrganizzazioniPOI(String[] words) {
 		POI.Builder poiBuilder = POI.newBuilder();
 		
+		int pos = Integer.parseInt(words[0].replace("\"", ""));
+		
 		Address.Builder addressBuilder = Address.newBuilder();
 		addressBuilder.setStreet(words[3].replace("\"", ""));
 		addressBuilder.setCity(removeSpaces(words[4]).replace("\"", ""));
@@ -257,7 +263,7 @@ public class TrentinoFamigliaScript {
 		poiBuilder.setCoordinate(coordBuilder.build());
 		
 		poiBuilder.setDatasetId("smart");
-		int pos = Integer.parseInt(words[0].replace("\"", ""));
+		
 		poiBuilder.setPoiId(pos  + "@smartcampus.service.trentinofamiglia");
 		
 		

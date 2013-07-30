@@ -39,7 +39,8 @@ public class TestDataFlow extends TestCase {
 		for (Message msg: data2) {
 			System.err.println(((OrganizzazioneFamiglia)msg).getName());
 			System.err.println(((OrganizzazioneFamiglia)msg).getStatus());
-			System.err.println(((OrganizzazioneFamiglia)msg).getPoi());
+//			System.err.println(((OrganizzazioneFamiglia)msg).getPoi());
+			System.err.println(((OrganizzazioneFamiglia)msg).getLink());
 			System.err.println("----------------------------------");
 		}
 		
