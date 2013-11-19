@@ -7,17 +7,16 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import junit.framework.TestCase;
+
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-import junit.framework.TestCase;
-
 import com.google.protobuf.Message;
 
-import eu.trentorise.smartcampus.service.trentinofamiglia.data.message.Trentinofamiglia.EventoFamiglia;
-import eu.trentorise.smartcampus.service.trentinofamiglia.data.message.Trentinofamiglia.OrganizzazioneFamiglia;
-import eu.trentorise.smartcampus.service.trentinofamiglia.impl.GetEventiDataFlow;
+import eu.trentorise.smartcampus.service.trentinofamiglia.impl.GetDistrettiDataFlow;
 import eu.trentorise.smartcampus.service.trentinofamiglia.impl.GetOrganizzazioniDataFlow;
+import eu.trentorise.smartcampus.service.trentinofamiglia.impl.GetProgrammiDataFlow;
 
 public class TestDataFlow extends TestCase {
 	
@@ -27,24 +26,36 @@ public class TestDataFlow extends TestCase {
 		
 		DataFlowTestHelper helper = new DataFlowTestHelper();
 		Map<String, Object> parameters = new HashMap<String, Object>();
-//		Map<String, Object> out1 = helper.executeDataFlow("smartcampus.service.trentinofamiglia", "GetEventi", new GetEventiDataFlow(), parameters);
-//		List<Message> data1 = (List<Message>)out1.get("data");
-////		for (Message msg: data1) {
-////			System.err.println(((EventoFamiglia)msg));
-////			System.err.println("----------------------------------");
-////		}
-		
-		Map<String, Object> out2 = helper.executeDataFlow("smartcampus.service.trentinofamiglia", "GetOrganizzazioni", new GetOrganizzazioniDataFlow(), parameters);
-		List<Message> data2 = (List<Message>)out2.get("data");
-		for (Message msg: data2) {
-			System.err.println(((OrganizzazioneFamiglia)msg).getName());
-			System.err.println(((OrganizzazioneFamiglia)msg).getStatus());
-//			System.err.println(((OrganizzazioneFamiglia)msg).getPoi());
-			System.err.println(((OrganizzazioneFamiglia)msg).getLink());
+		Map<String, Object> out1 = helper.executeDataFlow("smartcampus.service.trentinofamiglia", "GetProgrammi", new GetProgrammiDataFlow(), parameters);
+//		Map<String, Object> out1 = helper.executeDataFlow("smartcampus.service.trentinofamiglia", "GetDistretti", new GetDistrettiDataFlow(), parameters);
+		List<Message> data1 = (List<Message>)out1.get("data");
+		for (Message msg: data1) {
+//			System.err.println((((DatiDistretto)msg)).getOrganizzazioniList());
+			System.err.println(msg);
 			System.err.println("----------------------------------");
 		}
 		
+//		Map<String, Object> out2 = helper.executeDataFlow("smartcampus.service.trentinofamiglia", "GetOrganizzazioni", new GetOrganizzazioniDataFlow(), parameters);
+//		List<Message> data2 = (List<Message>)out2.get("data");
+//		for (Message msg: data2) {
+//			System.err.println(((OrganizzazioneFamiglia)msg).getName());
+//			System.err.println(((OrganizzazioneFamiglia)msg).getStatus());
+//			System.err.println(((OrganizzazioneFamiglia)msg).getLink());
+//			System.err.println("----------------------------------");
+//		}
+		
+//		Map<String, Object> out2 = helper.executeDataFlow("smartcampus.service.trentinofamiglia", "GetDistretto", new GetDistrettoDataFlow(), parameters);
+//		List<Message> data2 = (List<Message>)out2.get("data");
+//		for (Message msg: data2) {
+////			System.err.println(((DatiDistretto)msg));
+//			System.err.println("--------------------------------------------------------------------");			
+//			for (OrganizzazioneAderente org: ((DatiDistretto)msg).getOrganizzazioniList()) {
+//			System.err.println(org);
+//			System.err.println("----------------------------------");
+//			}
+//		}		
+		
 //		System.err.println(data1.size());
-		System.err.println(data2.size());
+//		System.err.println(data2.size());
 	}
 }

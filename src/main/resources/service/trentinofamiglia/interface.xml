@@ -7,11 +7,45 @@
 		<operation name="GetOrganizzazioni" storable="true">
 			<output type="eu.trentorise.smartcampus.service.trentinofamiglia.data.message.Trentinofamiglia$OrganizzazioneFamiglia" repeated="true" />
 		</operation>		
+		<operation name="GetDossier" storable="true">
+			<output type="eu.trentorise.smartcampus.service.trentinofamiglia.data.message.Trentinofamiglia$DossierFamiglia" repeated="true" />
+		</operation>	
+		<operation name="GetManifestazioni" storable="true">
+			<output type="eu.trentorise.smartcampus.service.trentinofamiglia.data.message.Trentinofamiglia$DatiManifestazione" repeated="true" />
+		</operation>
+		<operation name="GetStruttureRicettive" storable="true">
+			<output type="eu.trentorise.smartcampus.service.trentinofamiglia.data.message.Trentinofamiglia$StrutturaRicettiva" repeated="true" />
+		</operation>		
+		<operation name="GetPersoneAudit" storable="true">
+			<output type="eu.trentorise.smartcampus.service.trentinofamiglia.data.message.Trentinofamiglia$DatiPersonaAudit" repeated="true" />
+		</operation>	
+		<operation name="GetNewMedia" storable="true">
+			<output type="eu.trentorise.smartcampus.service.trentinofamiglia.data.message.Trentinofamiglia$DatiNewMedia" repeated="true" />
+		</operation>	
+		<operation name="GetAllattamento" storable="true">
+			<output type="eu.trentorise.smartcampus.service.trentinofamiglia.data.message.Trentinofamiglia$DatiAllattamento" repeated="true" />
+		</operation>
+														
+		<operation name="GetDistretti" storable="true">
+			<output type="eu.trentorise.smartcampus.service.trentinofamiglia.data.message.Trentinofamiglia$DatiOrganizzazioniDistretto" repeated="false" />
+		</operation>
+		<operation name="GetProgrammi" storable="true">
+			<output type="eu.trentorise.smartcampus.service.trentinofamiglia.data.message.Trentinofamiglia$DatiProgrammiDistretto" repeated="false" />
+		</operation>
 	</interface>
 
 	<implementation package="eu.trentorise.smartcampus.service.trentinofamiglia">
 		<operationImpl name="GetEventi"/>
 		<operationImpl name="GetOrganizzazioni"/>
+		<operationImpl name="GetDossier"/>
+		<operationImpl name="GetManifestazioni"/>
+		<operationImpl name="GetStruttureRicettive"/>
+		<operationImpl name="GetPersoneAudit"/>
+		<operationImpl name="GetNewMedia"/>
+		<operationImpl name="GetAllattamento"/>
+		
+		<operationImpl name="GetDistretti"/>
+		<operationImpl name="GetProgrammi"/>
 	</implementation>	
 	
 </service-definition>
