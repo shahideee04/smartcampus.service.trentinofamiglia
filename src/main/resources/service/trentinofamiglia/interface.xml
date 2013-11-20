@@ -32,6 +32,11 @@
 		<operation name="GetProgrammi" storable="true">
 			<output type="eu.trentorise.smartcampus.service.trentinofamiglia.data.message.Trentinofamiglia$DatiProgrammiDistretto" repeated="false" />
 		</operation>
+		
+		<operation name="GetEventiGarda" storable="true">
+			<output type="eu.trentorise.smartcampus.service.trentinofamiglia.data.message.Trentinofamiglia$EventoGarda" repeated="true" />
+		</operation>		
+		
 	</interface>
 
 	<implementation package="eu.trentorise.smartcampus.service.trentinofamiglia">

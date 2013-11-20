@@ -155,4 +155,18 @@ message DatiAzione {
  optional string tags = 6; 
 }
 
-
+message EventoGarda {
+ required string title = 1;
+ required string description = 2;
+ required string link = 3;
+ required string shortText = 4;
+ required string place = 5;
+ optional string location = 6;
+ required string category = 7; 
+ required int64 from = 8; 
+ required int64 to = 9;
+ optional double lat = 10;
+ optional double lon = 11;
+ required string price = 12;
+ required string free = 13;    
+}
