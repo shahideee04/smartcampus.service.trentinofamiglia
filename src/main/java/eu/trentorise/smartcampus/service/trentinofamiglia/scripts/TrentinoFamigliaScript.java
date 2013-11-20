@@ -286,8 +286,14 @@ public class TrentinoFamigliaScript {
 				builder.setPhone(words[4]);
 				builder.setLink(words[5]);
 				builder.setEmail(words[6]);
-				builder.setLat(Double.parseDouble(words[7]));
+				try {
+					builder.setLat(Double.parseDouble(words[7]));
+				} catch (NumberFormatException e) {
+				}
+				try {
 				builder.setLon(Double.parseDouble(words[8]));
+				} catch (NumberFormatException e) {
+				}
 
 				result.add(builder.build());
 			}
