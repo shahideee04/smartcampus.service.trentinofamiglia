@@ -155,15 +155,19 @@ public class TrentinoFamigliaScript {
 					continue;
 				}
 
-				OrganizzazioneFamiglia.Builder builder = OrganizzazioneFamiglia.newBuilder();
-				builder.setOrder("" + Integer.parseInt(words[0].replace("\"", "")));
-				builder.setName(words[1].replace("\"", ""));
-				builder.setStatus(words[2].replace("\"", ""));
-				builder.setLink(words[8].replace("\"", ""));
-				POI poi = buildOrganizzazioniPOI(words);
-				builder.setPoi(poi);
-
-				result.add(builder.build());
+				try {
+					OrganizzazioneFamiglia.Builder builder = OrganizzazioneFamiglia.newBuilder();
+					builder.setOrder("" + Integer.parseInt(words[0].replace("\"", "")));
+					builder.setName(words[1].replace("\"", ""));
+					builder.setStatus(words[2].replace("\"", ""));
+					builder.setLink(words[8].replace("\"", ""));
+					POI poi = buildOrganizzazioniPOI(words);
+					builder.setPoi(poi);
+	
+					result.add(builder.build());
+				} catch (Exception e) {
+					e.printStackTrace();
+				}							
 			}
 
 			return result;
@@ -191,26 +195,29 @@ public class TrentinoFamigliaScript {
 					continue;
 				}
 
-				StrutturaRicettiva.Builder builder = StrutturaRicettiva.newBuilder();
-				builder.setId(words[0]);
-				builder.setName(words[1]);
-				builder.setStars(words[2]);
-				builder.setLevelFamily(words[3]);
-				builder.setRegion(words[4]);
-				builder.setTown(words[5]);
-				builder.setBookingHow(words[6]);
-				builder.setBookingWhere(words[7]);
-				builder.setBookingAddress(words[8]);
-				builder.setBookingZipCode(words[9]);
-				builder.setBookingTown(words[10]);
-				builder.setBookingPhone(words[11]);
-				builder.setBookingEmail(words[12]);
-				builder.setBookingLink(words[13]);
-				builder.setGuide(words[14]);
-				builder.setLat(Double.parseDouble(words[15]));
-				builder.setLon(Double.parseDouble(words[16]));				
-
+				try {
+					StrutturaRicettiva.Builder builder = StrutturaRicettiva.newBuilder();
+					builder.setId(words[0]);
+					builder.setName(words[1]);
+					builder.setStars(words[2]);
+					builder.setLevelFamily(words[3]);
+					builder.setRegion(words[4]);
+					builder.setTown(words[5]);
+					builder.setBookingHow(words[6]);
+					builder.setBookingWhere(words[7]);
+					builder.setBookingAddress(words[8]);
+					builder.setBookingZipCode(words[9]);
+					builder.setBookingTown(words[10]);
+					builder.setBookingPhone(words[11]);
+					builder.setBookingEmail(words[12]);
+					builder.setBookingLink(words[13]);
+					builder.setGuide(words[14]);
+					builder.setLat(Double.parseDouble(words[15]));
+					builder.setLon(Double.parseDouble(words[16]));		
 				result.add(builder.build());
+				} catch (Exception e) {
+					e.printStackTrace();
+				}				
 			}
 
 			return result;
@@ -243,7 +250,6 @@ public class TrentinoFamigliaScript {
 
 					DatiPersonaAudit.Builder builder = DatiPersonaAudit.newBuilder();
 					builder.setId(words[0]);
-//					builder.setSurname(words[1]);
 					builder.setName(words[1]);
 					builder.setDate(words[2]);
 					builder.setEmail(words[3]);
@@ -278,24 +284,21 @@ public class TrentinoFamigliaScript {
 					continue;
 				}
 
-				DatiNewMedia.Builder builder = DatiNewMedia.newBuilder();
-				builder.setName(words[0]);
-				builder.setContact(words[1]);
-				builder.setRole(words[2]);
-				builder.setAddress(words[3]);
-				builder.setPhone(words[4]);
-				builder.setLink(words[5]);
-				builder.setEmail(words[6]);
 				try {
+					DatiNewMedia.Builder builder = DatiNewMedia.newBuilder();
+					builder.setName(words[0]);
+					builder.setContact(words[1]);
+					builder.setRole(words[2]);
+					builder.setAddress(words[3]);
+					builder.setPhone(words[4]);
+					builder.setLink(words[5]);
+					builder.setEmail(words[6]);
 					builder.setLat(Double.parseDouble(words[7]));
-				} catch (NumberFormatException e) {
+					builder.setLon(Double.parseDouble(words[8]));
+					result.add(builder.build());
+				} catch (Exception e) {
+					e.printStackTrace();
 				}
-				try {
-				builder.setLon(Double.parseDouble(words[8]));
-				} catch (NumberFormatException e) {
-				}
-
-				result.add(builder.build());
 			}
 
 			return result;
@@ -323,16 +326,21 @@ public class TrentinoFamigliaScript {
 					continue;
 				}
 
-				DatiAllattamento.Builder builder = DatiAllattamento.newBuilder();
-				builder.setId(words[0]);
-				builder.setName(words[1]);
-				builder.setAddress(words[2]);
-				builder.setTown(words[3]);
-				builder.setArea(words[4]);
-				builder.setLat(Double.parseDouble(words[5]));
-				builder.setLon(Double.parseDouble(words[6]));				
+				try {
+					DatiAllattamento.Builder builder = DatiAllattamento.newBuilder();
+					builder.setId(words[0]);
+					builder.setName(words[1]);
+					builder.setAddress(words[2]);
+					builder.setTown(words[3]);
+					builder.setArea(words[4]);
+					builder.setLat(Double.parseDouble(words[5]));
+					builder.setLon(Double.parseDouble(words[6]));
+					result.add(builder.build());
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
 
-				result.add(builder.build());
+
 			}
 
 			return result;
@@ -461,22 +469,24 @@ public class TrentinoFamigliaScript {
 			// TODO: change
 			builder.setId(removeCR(distretto.getTitolo()));
 			for (Aderente aderente : distretto.getOrganizzazioniAderenti().getAderente()) {
-				OrganizzazioneAderente.Builder org = OrganizzazioneAderente.newBuilder();
-				org.setAlias(removeCR(aderente.getUrlAlias()));
-				org.setAddress(removeCR(aderente.getIndirizzo()));
-				org.setDescription(removeCR(aderente.getAbstract()));
-				org.setEmail(removeCR(aderente.getEmail()));
-				org.setFax(removeCR(aderente.getFax()));
-				org.setLink(removeCR(aderente.getSitoWeb()));
-				org.setLogo(removeCR(aderente.getLogo()));
-				org.setName(removeCR(aderente.getNome()));
-				org.setPhone(removeCR(aderente.getTelefono()));
-				org.setLat(aderente.getCoordinate().getLatitudine());
-				org.setLon(aderente.getCoordinate().getLongitudine());
-				// TODO: change
-				org.setId(removeCR(aderente.getNome()));
-
-				builder.addOrganizzazioni(org.build());
+				try {
+					OrganizzazioneAderente.Builder org = OrganizzazioneAderente.newBuilder();
+					org.setAlias(removeCR(aderente.getUrlAlias()));
+					org.setAddress(removeCR(aderente.getIndirizzo()));
+					org.setDescription(removeCR(aderente.getAbstract()));
+					org.setEmail(removeCR(aderente.getEmail()));
+					org.setFax(removeCR(aderente.getFax()));
+					org.setLink(removeCR(aderente.getSitoWeb()));
+					org.setLogo(removeCR(aderente.getLogo()));
+					org.setName(removeCR(aderente.getNome()));
+					org.setPhone(removeCR(aderente.getTelefono()));
+					org.setLat(aderente.getCoordinate().getLatitudine());
+					org.setLon(aderente.getCoordinate().getLongitudine());
+					org.setId(removeCR(aderente.getNome()));
+					builder.addOrganizzazioni(org.build());
+				} catch (Exception e) {
+					e.printStackTrace();
+				}						
 			}
 
 			return builder.build();
@@ -596,7 +606,6 @@ public class TrentinoFamigliaScript {
 				} else if ("link".equals(name)) {
 					builder.setLink(value.toString());
 				} else if ("guid".equals(name)) {
-					// TODO to check
 					builder.setId(((Guid) value).getValue());
 				}
 			}
@@ -616,33 +625,35 @@ public class TrentinoFamigliaScript {
 		Events events = (Events) u.unmarshal(new StringReader(s));
 		
 		for (Item item: events.getItem()) {
-			EventoGarda.Builder builder = EventoGarda.newBuilder();
-			
-			System.out.println(item.getTitle());
-			
-			builder.setTitle(item.getTitle());
-			builder.setDescription(item.getDescription());
-			builder.setLink(item.getLink());
-			builder.setShortText(item.getTestobreve());
-			builder.setPlace(item.getLuogodisvolgimento());
-			if (item.getLocalita().getItem() != null) {
-				builder.setLocation(item.getLocalita().getItem());
-			}
-			builder.setCategory(item.getCategoria());
-			if (item.getCoordinate().getX() != null) {
-				builder.setLat(item.getCoordinate().getX());
-			}
-			if (item.getCoordinate().getY() != null) {
-				builder.setLon(item.getCoordinate().getY());
-			}
-			builder.setPrice(item.getPrezzo());
-			builder.setFree(item.getGratuito());
-			
-			DateFormat df = new SimpleDateFormat("dd/MM/yyyy");
-			builder.setFrom(df.parse(item.getDatainizio()).getTime());
-			builder.setTo(df.parse(item.getDatafine()).getTime());
-			
-			result.add(builder.build());
+			try {
+				EventoGarda.Builder builder = EventoGarda.newBuilder();
+				
+				builder.setTitle(item.getTitle());
+				builder.setDescription(item.getDescription());
+				builder.setLink(item.getLink());
+				builder.setShortText(item.getTestobreve());
+				builder.setPlace(item.getLuogodisvolgimento());
+				if (item.getLocalita().getItem() != null) {
+					builder.setLocation(item.getLocalita().getItem());
+				}
+				builder.setCategory(item.getCategoria());
+				if (item.getCoordinate().getX() != null) {
+					builder.setLat(item.getCoordinate().getX());
+				}
+				if (item.getCoordinate().getY() != null) {
+					builder.setLon(item.getCoordinate().getY());
+				}
+				builder.setPrice(item.getPrezzo());
+				builder.setFree(item.getGratuito());
+				
+				DateFormat df = new SimpleDateFormat("dd/MM/yyyy");
+				builder.setFrom(df.parse(item.getDatainizio()).getTime());
+				builder.setTo(df.parse(item.getDatafine()).getTime());
+				
+				result.add(builder.build());
+		} catch (Exception e) {
+			e.printStackTrace();
+		}					
 		}
 		
 		return result;
