@@ -354,8 +354,8 @@ public class TrentinoFamigliaScript {
 	
 	public List<Message> parseFamilyTrentino() throws Exception {
 		List<Message> result = new ArrayList<Message>();
-		String files[] = new String[] { "data/comuni_family.csv", "data/musei_family.csv", "data/alberghi.csv", "data/pubblici_esercizi.csv", "data/servizi_bambini.csv" };
-		String types[] = new String[] { "Comune", "Museo", "Strutture alberghiere", "Pubblici esercizi", "Servizi per bambini e ragazzi" };
+		String files[] = new String[] { "data/comuni_family.csv", "data/musei_family.csv", "data/alberghi.csv", "data/pubblici_esercizi.csv", "data/servizi_bambini.csv", "data/associazioni_sportive.csv" };
+		String types[] = new String[] { "Comuni", "Musei", "Strutture alberghiere", "Pubblici esercizi", "Servizi per bambini e ragazzi", "Associazioni sportive" };
 		try {
 			for (int i = 0; i < files.length; i++) {
 				InputStream rs = Thread.currentThread().getContextClassLoader().getResourceAsStream(files[i]);
