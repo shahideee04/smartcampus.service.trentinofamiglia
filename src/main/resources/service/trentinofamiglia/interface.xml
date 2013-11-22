@@ -36,6 +36,9 @@
 		<operation name="GetEventiGarda" storable="true">
 			<output type="eu.trentorise.smartcampus.service.trentinofamiglia.data.message.Trentinofamiglia$EventoGarda" repeated="true" />
 		</operation>		
+		<operation name="GetFamilyTrentino" storable="true">
+			<output type="eu.trentorise.smartcampus.service.trentinofamiglia.data.message.Trentinofamiglia$OrganizzazioneFamilyTrentino" repeated="true" />
+		</operation>			
 		
 	</interface>
 

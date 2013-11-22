@@ -65,7 +65,6 @@ message StrutturaRicettiva {
 message DatiPersonaAudit {
  required string id = 1;
  required string name = 2;
-// required string surname = 3;
  required string date = 3;
  required string email = 4;
  required string type = 5;
@@ -169,4 +168,16 @@ message EventoGarda {
  optional double lon = 11;
  required string price = 12;
  required string free = 13;    
+}
+
+message OrganizzazioneFamilyTrentino {
+ required string name = 1;
+ required string address = 2;
+ required string phone = 3;
+ required string email = 4;
+ required string web = 5;
+ required string type = 6;
+ optional string fax = 7;
+ optional double lat = 8;
+ optional double lon = 9;
 }

@@ -48,6 +48,7 @@ import eu.trentorise.smartcampus.service.trentinofamiglia.data.message.Trentinof
 import eu.trentorise.smartcampus.service.trentinofamiglia.data.message.Trentinofamiglia.EventoGarda;
 import eu.trentorise.smartcampus.service.trentinofamiglia.data.message.Trentinofamiglia.OrganizzazioneAderente;
 import eu.trentorise.smartcampus.service.trentinofamiglia.data.message.Trentinofamiglia.OrganizzazioneFamiglia;
+import eu.trentorise.smartcampus.service.trentinofamiglia.data.message.Trentinofamiglia.OrganizzazioneFamilyTrentino;
 import eu.trentorise.smartcampus.service.trentinofamiglia.data.message.Trentinofamiglia.StrutturaRicettiva;
 import eu.trentorise.smartcampus.service.trentinofamiglia.distretti.jaxb.Distretto;
 import eu.trentorise.smartcampus.service.trentinofamiglia.distretti.jaxb.Distretto.OrganizzazioniAderenti.Aderente;
@@ -350,6 +351,57 @@ public class TrentinoFamigliaScript {
 		}
 
 	}		
+	
+	public List<Message> parseFamilyTrentino() throws Exception {
+		List<Message> result = new ArrayList<Message>();
+		String files[] = new String[] { "data/comuni_family.csv", "data/musei_family.csv", "data/alberghi.csv", "data/pubblici_esercizi.csv", "data/servizi_bambini.csv" };
+		String types[] = new String[] { "Comune", "Museo", "Strutture alberghiere", "Pubblici esercizi", "Servizi per bambini e ragazzi" };
+		try {
+			for (int i = 0; i < files.length; i++) {
+				InputStream rs = Thread.currentThread().getContextClassLoader().getResourceAsStream(files[i]);
+				InputStreamReader isr = new InputStreamReader(rs, Charset.forName("UTF-8"));
+
+				boolean first = true;
+
+				CSVReader csvReader = new CSVReader(isr, ',', '"');
+				List<String[]> lines = csvReader.readAll();
+
+				int inc = 0;
+				for (String words[] : lines) {
+					if (first) {
+						first = false;
+						if ("Fax".equals(words[3])) {
+							inc = 1;
+						}
+						continue;
+					}
+
+					try {
+					OrganizzazioneFamilyTrentino.Builder builder = OrganizzazioneFamilyTrentino.newBuilder();
+						builder.setName(words[0]);
+						builder.setAddress(words[1]);
+						builder.setPhone(words[2]);
+						builder.setEmail(words[3 + inc]);
+						builder.setWeb(words[4 + inc]);
+						builder.setLat(Double.parseDouble(transformLatLong(words[5 + inc])));
+						builder.setLon(Double.parseDouble(transformLatLong(words[6 + inc])));
+						builder.setType(types[i]);
+						if (inc != 0) {
+							builder.setFax(words[3]);
+						}
+						result.add(builder.build());
+					} catch (Exception e) {
+					}
+				}
+			}
+
+			return result;
+		} catch (Exception e) {
+			e.printStackTrace();
+			throw e;
+		}
+
+	}	
 	
 	
 	public String getOrganizzazioniURL(Document doc) throws XPathExpressionException {
