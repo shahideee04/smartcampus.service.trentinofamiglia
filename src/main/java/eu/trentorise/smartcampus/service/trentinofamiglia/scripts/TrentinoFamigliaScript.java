@@ -522,6 +522,9 @@ public class TrentinoFamigliaScript {
 			builder.setId(removeCR(distretto.getTitolo()));
 			for (Aderente aderente : distretto.getOrganizzazioniAderenti().getAderente()) {
 				try {
+					if (aderente.getNome().length() < 5) {
+						continue;
+					}
 					OrganizzazioneAderente.Builder org = OrganizzazioneAderente.newBuilder();
 					org.setAlias(removeCR(aderente.getUrlAlias()));
 					org.setAddress(removeCR(aderente.getIndirizzo()));
