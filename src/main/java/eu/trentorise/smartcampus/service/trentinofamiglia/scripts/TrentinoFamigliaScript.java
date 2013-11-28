@@ -616,6 +616,8 @@ public class TrentinoFamigliaScript {
 			builder.setId(dossier.getIdIntervento());
 			if (dossier.getTitolo() != null) {
 				builder.setTitle(dossier.getTitolo());
+			} else {
+				continue;
 			}
 			if (dossier.getTipologiaX0020Intervento() != null) {
 				builder.setType(dossier.getTipologiaX0020Intervento());
